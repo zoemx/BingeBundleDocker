@@ -1,0 +1,31 @@
+.mat-toolbar {
+    background-color: #9A031E;
+    color: #EFE7DA;
+}
+
+.btn a{
+    color: #EFE7DA;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+.search-icon {
+    color: #212738;
+}
+
+.movie-grid {
+    display: grid;
+    grid-gap: 16px;
+    padding: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(23%, 1fr));
+}
+
+.movie-card{
+    max-width: 300px;
+}
+
+.movie-card:hover {
+    box-shadow: 0 0 10px 5px #FFE658;
+}

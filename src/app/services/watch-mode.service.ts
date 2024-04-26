@@ -20,7 +20,8 @@ export class WatchModeService {
    } 
 
    //TODO: REDO this 
-   getTitle(){
-    return this.HttpClient.get(`https://api.watchmode.com/v1/title/3173903/sources/?apiKey=${this.API_KEY}`)
+   getMovieTitles(){
+    const headers = {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzZTExYTBhZDNjN2Y3NGE1ODY3MThkODRlYzdjMTNlNiIsInN1YiI6IjY2MTk1ODA2YWYzZGE2MDE2MzE4OTM1ZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.bEGEsfW6lpxXIlOoiGs616XICs0SfBIZlBSXvvVAR1w'}
+    return this.HttpClient.get<any>('https://api.themoviedb.org/3/movie/popular', {headers})
    }
 }

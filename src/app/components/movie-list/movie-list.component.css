@@ -5,8 +5,9 @@
     padding: 10px;
 }
 
- h2 {
+h2 {
     color: #EFE7DA;
+    text-align: center;
 }
 
 .movie-card{

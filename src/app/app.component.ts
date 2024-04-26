@@ -9,6 +9,7 @@ import { MatCardModule } from '@angular/material/card';
 import { CommonModule } from '@angular/common';
 
 import { WatchModeService } from './services/watch-mode.service';
+import { MovieTitle, TVTitle } from '../interfaces/streaming-Service';
 
 
 @Component({
@@ -28,22 +29,38 @@ import { WatchModeService } from './services/watch-mode.service';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title: any;
+  title: MovieTitle = {
+      genres: [],
+      id: 1,
+      imdb_id: "",
+      origin_country: [],
+      original_language: "",
+      original_title: "",
+      overview: "",
+      release_date: "",
+      runtime: 0,
+      spoken_languages: [],
+      tagline: "",
+      title: ""
+  }
   cards: any;
-  titles: any[] = [];
+  titles: TVTitle[] = [];
 
   constructor(private WatchModeService: WatchModeService){
   }
 
   ngOnInit():void{
-    this.WatchModeService.getTitles().subscribe((resp:any)=>{
-      console.log(resp);
-      this.titles = resp.results;
+    this.WatchModeService.getTitles().subscribe((resp:TVTitle[])=>{
+      this.titles = resp;
+      console.log(this.titles)
     });
-    /* this.WatchModeService.getTitle().subscribe((resp:any)=>{
-      console.log(resp);
-      this.title = resp.results;
-    }) */
-    console.log(this.title);
+     this.WatchModeService.getTitle().subscribe((resp:MovieTitle)=>{
+
+      console.log("Original Title:", this.title)
+      console.log("Response:", resp)
+      this.title = resp;
+      console.log("MOVIE TITLE:", this.title)
+    })
+    console.log(this.titles);
   }
 }

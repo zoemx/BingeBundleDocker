@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { MovieTitle, TVTitle } from '../../interfaces/streaming-Service';
 
 @Injectable({
   providedIn: 'root'
@@ -16,11 +17,12 @@ export class WatchModeService {
    //TODO: Create requests for movies as well as TV
    getTitles(){
     const headers = {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzZTExYTBhZDNjN2Y3NGE1ODY3MThkODRlYzdjMTNlNiIsInN1YiI6IjY2MTk1ODA2YWYzZGE2MDE2MzE4OTM1ZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.bEGEsfW6lpxXIlOoiGs616XICs0SfBIZlBSXvvVAR1w'}
-    return this.HttpClient.get<any>('https://api.themoviedb.org/3/tv/popular', {headers})
+    return this.HttpClient.get<TVTitle[]>('https://api.themoviedb.org/3/tv/popular', {headers})
    } 
 
    //TODO: REDO this 
    getTitle(){
-    return this.HttpClient.get(`https://api.watchmode.com/v1/title/3173903/sources/?apiKey=${this.API_KEY}`)
+    const headers = {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzZTExYTBhZDNjN2Y3NGE1ODY3MThkODRlYzdjMTNlNiIsInN1YiI6IjY2MTk1ODA2YWYzZGE2MDE2MzE4OTM1ZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.bEGEsfW6lpxXIlOoiGs616XICs0SfBIZlBSXvvVAR1w'}
+    return this.HttpClient.get<MovieTitle>(`https://api.themoviedb.org/3/movie/948549?language=en-US`, {headers})
    }
 }

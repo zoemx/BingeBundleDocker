@@ -1,0 +1,16 @@
+.mat-toolbar {
+    background-color: #9A031E;
+    color: #EFE7DA;
+}
+
+.btn a{
+    color: #EFE7DA;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+.search-icon {
+    color: #212738;
+}

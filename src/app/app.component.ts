@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -9,6 +9,9 @@ import { MatCardModule } from '@angular/material/card';
 import { CommonModule } from '@angular/common';
 
 import { WatchModeService } from './services/watch-mode.service';
+import { HeaderComponent } from './components/header/header.component';
+import { TvListComponent } from './components/tv-list/tv-list.component';
+import { MovieListComponent } from './components/movie-list/movie-list.component';
 
 
 @Component({
@@ -23,6 +26,9 @@ import { WatchModeService } from './services/watch-mode.service';
     MatInputModule,
     MatCardModule,
     CommonModule,
+    HeaderComponent,
+    TvListComponent,
+    MovieListComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
@@ -30,20 +36,6 @@ import { WatchModeService } from './services/watch-mode.service';
 export class AppComponent {
   title: any;
   cards: any;
-  titles: any[] = [];
+  tv_titles: any[] = [];
 
-  constructor(private WatchModeService: WatchModeService){
-  }
-
-  ngOnInit():void{
-    this.WatchModeService.getTitles().subscribe((resp:any)=>{
-      console.log(resp);
-      this.titles = resp.results;
-    });
-    /* this.WatchModeService.getTitle().subscribe((resp:any)=>{
-      console.log(resp);
-      this.title = resp.results;
-    }) */
-    console.log(this.title);
-  }
 }

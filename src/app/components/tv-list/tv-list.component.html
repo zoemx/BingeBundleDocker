@@ -1,0 +1,16 @@
+<h2>TV SHOWS</h2>
+<div class="movie-grid" >
+<div class="box" *ngFor="let tv_show of tv_titles">
+    <mat-card class="movie-card">
+      <img
+        src="https://image.tmdb.org/t/p/original/{{tv_show.poster_path}}"
+      />
+      <mat-card-content>{{tv_show.name}}</mat-card-content>
+      <div class="icon-container">
+        <mat-icon>search</mat-icon>
+        <mat-icon>favorite</mat-icon>
+        <mat-icon>theaters</mat-icon>
+      </div>
+    </mat-card>
+  </div>
+</div>

@@ -13,4 +13,6 @@ describe('WatchModeService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  //getTitles() when successful, returns an array of titles 
 });

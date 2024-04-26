@@ -28,7 +28,7 @@ import { WatchModeService } from './services/watch-mode.service';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = 'binge-bundler';
+  title: any;
   cards: any;
   titles: any[] = [];
 
@@ -39,7 +39,11 @@ export class AppComponent {
     this.WatchModeService.getTitles().subscribe((resp:any)=>{
       console.log(resp);
       this.titles = resp.results;
-    })
-    console.log(this.titles);
+    });
+    /* this.WatchModeService.getTitle().subscribe((resp:any)=>{
+      console.log(resp);
+      this.title = resp.results;
+    }) */
+    console.log(this.title);
   }
 }

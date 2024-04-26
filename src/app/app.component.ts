@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
@@ -7,6 +7,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { CommonModule } from '@angular/common';
+
+import { WatchModeService } from './services/watch-mode.service';
+
 
 @Component({
   selector: 'app-root',
@@ -27,4 +30,16 @@ import { CommonModule } from '@angular/common';
 export class AppComponent {
   title = 'binge-bundler';
   cards: any;
+  titles: any[] = [];
+
+  constructor(private WatchModeService: WatchModeService){
+  }
+
+  ngOnInit():void{
+    this.WatchModeService.getTitles().subscribe((resp:any)=>{
+      console.log(resp);
+      this.titles = resp.results;
+    })
+    console.log(this.titles);
+  }
 }

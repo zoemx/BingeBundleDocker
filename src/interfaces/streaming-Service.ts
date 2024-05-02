@@ -9,74 +9,69 @@ export interface Price {
         price: number
         ads: boolean
       }
-      
-//Create title/move/show interface
 
-/* export interface TitleList {
-    titles: Title[]
-    page: number
-    total_results: number
-    total_pages: number
-  } */
-
-  //Is title Id === titleDetails
-  //potentially match by title
-  //TITLE API 
-  //"id": 3173903,
-  //"title": "Breaking Bad",
-
-  //LIST TITLE API
-  export interface Title {
-    id: number
+  //What we need/will be working this
+  //All the info we need to display cards
+  //WIP
+  export interface cardTitle {
     title: string
-    year: number
-    imdb_id: string
-    tmdb_id: number
-    tmdb_type: string
-    type: string
+    year: string 
+    poster: string
+    genre?: string[]
+    streaming_services: StreamingService[]
   }
 
-export interface TitleDetails {
+  //////////////////////////////////////////////////////////////////////////
+  //Detail Page for the Movie
+  //The data we recieve when clicking on a title card 
+  export interface MovieTitle {
+    backdrop_path?: string //
+    genres: Genre[] //
     id: number
-    title: string
-    original_title?: string
-    plot_overview: string
-    type: string
-    runtime_minutes: number
-    year: number
-    end_year?: number
-    release_date?: string
-    imdb_id?: string
-    tmdb_id?: number
-    tmdb_type?: string
-    genres: number[]
-    genre_names: string[]
-    user_rating: number
-    critic_score: number
-    us_rating: string
-    poster: string
-    backdrop: string
+    imdb_id: string
+    origin_country: string[]
     original_language: string
-    similar_titles: number[]
-    networks: number[]
-    network_names: string[]
-    trailer: string
-    trailer_thumbnail: string
-    relevance_percentile: number
-    sources: Source[]
+    original_title: string
+    overview: string
+    poster_path?: string
+    release_date: string
+    runtime: number
+    spoken_languages: SpokenLanguage[]
+    tagline: string
+    title: string
   }
   
-  export interface Source {
-    source_id: number
+  export interface Genre {
+    id: number
     name: string
-    type: string
-    region: string
-    ios_url: string
-    android_url?: string
-    web_url: string
-    format: string
-    price?: number
-    seasons: number
-    episodes: number
+  }
+  
+  export interface SpokenLanguage {
+    english_name: string
+    iso_639_1: string
+    name: string
+  }
+
+
+ //////////////////////////////////////////////////////////
+  //Detail Page for TV Show
+//const url = 'https://api.themoviedb.org/3/tv/series_id?language=en-US';
+  export interface TVTitle {
+    name: string
+    backdrop_path: string
+    first_air_date: string
+    genres?: Genre[]
+    id: number
+    languages?: string[]
+    
+    number_of_episodes?: number
+    number_of_seasons?: number
+    origin_country?: string[]
+    original_language?: string
+    original_name?: string
+    overview?: string
+    poster_path?: string
+    spoken_languages?: SpokenLanguage[]
+    tagline?: string
   }
   

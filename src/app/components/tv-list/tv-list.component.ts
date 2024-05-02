@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 
-import { WatchModeService } from '../../services/watch-mode.service';
+import { MoveApiService } from '../../services/move-api-service';
 
 @Component({
   selector: 'app-tv-list',
@@ -14,10 +14,10 @@ import { WatchModeService } from '../../services/watch-mode.service';
 })
 export class TvListComponent {
   tv_titles: any[] = [];
-  constructor(private WatchModeService: WatchModeService){
+  constructor(private MoveApiService: MoveApiService){
   }
   ngOnInit():void {
-    this.WatchModeService.getTitles().subscribe((resp:any)=>{
+    this.MoveApiService.getHomepageTVTitles().subscribe((resp:any)=>{
       // console.log(resp.results[0])
       resp.results.forEach((tv_show: any)=> {
         this.tv_titles.push(tv_show)

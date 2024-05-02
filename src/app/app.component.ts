@@ -8,7 +8,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { CommonModule } from '@angular/common';
 
-import { WatchModeService } from './services/watch-mode.service';
+import { MoveApiService } from './services/move-api-service';
 import { MovieTitle, TVTitle } from '../interfaces/streaming-Service';
 
 
@@ -47,11 +47,11 @@ export class AppComponent {
   titles: TVTitle[] = [];
   
 
-  constructor(private WatchModeService: WatchModeService){
+  constructor(private MoveApiService: MoveApiService){
   }
 
   ngOnInit():void{
-    this.WatchModeService.getTitles().subscribe((resp: any)=>{
+    this.MoveApiService.getHomepageTVTitles().subscribe((resp: any)=>{
       console.log(resp)
       this.titles = resp.results.map((item: any): TVTitle =>{
         //the response object will always be what the API gives us 
@@ -61,24 +61,23 @@ export class AppComponent {
           name: item.name,
           backdrop_path: item.backdrop_path,
           first_air_date: item.first_air_date,
-          //genres: item.genres
           id: item.id,
-          //languages?: item.languages
-          
-         //// number_of_episodes: number
-          //number_of_seasons: number
           origin_country: item.origin_country,
           original_language: item.original_language,
           original_name: item.original_name,
           overview: item.overview,
           poster_path: item.poster_path,
-          //spoken_languages?: item.spoken_languages,
-          //tagline?: string
+          // spoken_languages?: item.spoken_languages,
+          // tagline?: string
+          // languages?: item.languages
+          // genres: item.genres
+          // number_of_episodes: number
+          // number_of_seasons: number
         }
       } )
       console.log(this.titles)
     });
-     this.WatchModeService.getTitle().subscribe((resp:MovieTitle)=>{
+     this.MoveApiService.getSingleMovieTitle().subscribe((resp:MovieTitle)=>{
       this.title = {
         genres: resp.genres,
         id: resp.id,

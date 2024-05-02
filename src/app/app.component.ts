@@ -7,9 +7,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { CommonModule } from '@angular/common';
-
 import { MoveApiService } from './services/move-api-service';
 import { MovieTitle, TVTitle } from '../interfaces/streaming-Service';
+import { HeaderComponent } from './components/header/header.component';
+import { TvListComponent } from './components/tv-list/tv-list.component';
+import { MovieListComponent } from './components/movie-list/movie-list.component';
+
 
 
 @Component({
@@ -24,6 +27,9 @@ import { MovieTitle, TVTitle } from '../interfaces/streaming-Service';
     MatInputModule,
     MatCardModule,
     CommonModule,
+    HeaderComponent,
+    TvListComponent,
+    MovieListComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',

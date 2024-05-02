@@ -19,9 +19,8 @@ export class MovieListComponent {
   }
 
   ngOnInit():void{
-    //TODO: change this api method to what Lavon and Zoe created last week. 
     //Shami- sorry I needed to change this for a merge conflict
-    this.MoveApiService.getHomepageTVTitles().subscribe((resp:any) => {
+    this.MoveApiService.getPopularMovies().subscribe((resp:any) => {
       console.log(resp);
       resp.results.forEach((movie: any) => {
         this.movie_titles.push(movie);

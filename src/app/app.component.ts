@@ -45,13 +45,35 @@ export class AppComponent {
   }
   cards: any;
   titles: TVTitle[] = [];
+  
 
   constructor(private WatchModeService: WatchModeService){
   }
 
   ngOnInit():void{
-    this.WatchModeService.getTitles().subscribe((resp:TVTitle[])=>{
-      this.titles = resp;
+    this.WatchModeService.getTitles().subscribe((resp: any)=>{
+      console.log(resp)
+      this.titles = resp.results.map((item: any): TVTitle =>{
+        console.log(item)
+        return {
+          name: item.name,
+          backdrop_path: item.backdrop_path,
+          first_air_date: item.first_air_date,
+          //genres: item.genres
+          id: item.id,
+          //languages?: item.languages
+          
+         //// number_of_episodes: number
+          //number_of_seasons: number
+          origin_country: item.origin_country,
+          original_language: item.original_language,
+          original_name: item.original_name,
+          overview: item.overview,
+          poster_path: item.poster_path,
+          //spoken_languages?: item.spoken_languages,
+          //tagline?: string
+        }
+      } )
       console.log(this.titles)
     });
      this.WatchModeService.getTitle().subscribe((resp:MovieTitle)=>{

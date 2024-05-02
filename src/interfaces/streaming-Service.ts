@@ -60,17 +60,17 @@ export interface Price {
     name: string
     backdrop_path: string
     first_air_date: string
-    genres: Genre[]
+    genres?: Genre[]
     id: number
     languages?: string[]
     
-    number_of_episodes: number
-    number_of_seasons: number
-    origin_country: string[]
-    original_language: string
-    original_name: string
-    overview: string
-    poster_path: string
+    number_of_episodes?: number
+    number_of_seasons?: number
+    origin_country?: string[]
+    original_language?: string
+    original_name?: string
+    overview?: string
+    poster_path?: string
     spoken_languages?: SpokenLanguage[]
     tagline?: string
   }

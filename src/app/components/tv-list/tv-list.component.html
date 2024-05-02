@@ -1,11 +1,13 @@
 <h2>TV SHOWS</h2>
-<div class="movie-grid" >
-<div class="box" *ngFor="let tv_show of tv_titles">
+<div class="movie-grid">
+  <div class="box" *ngFor="let tv_show of tv_titles">
     <mat-card class="movie-card">
       <img
-        src="https://image.tmdb.org/t/p/original/{{tv_show.poster_path}}"
+        ngSrc="https://image.tmdb.org/t/p/original/{{ tv_show.poster_path }}"
+        height="400"
+        width="300"
       />
-      <mat-card-content>{{tv_show.name}}</mat-card-content>
+      <mat-card-content>{{ tv_show.name }}</mat-card-content>
       <div class="icon-container">
         <mat-icon>search</mat-icon>
         <mat-icon>favorite</mat-icon>
@@ -14,3 +16,10 @@
     </mat-card>
   </div>
 </div>
+<mat-paginator [length]="total_results"
+[pageSize]="20"
+[pageSizeOptions]="[20, 40, 50, 100]"
+[pageIndex]="currentPage"
+[showFirstLastButtons]="true"
+(page)="pageChangeEvent($event)"
+aria-label="Select page"></mat-paginator>

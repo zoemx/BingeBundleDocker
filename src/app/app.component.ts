@@ -54,7 +54,9 @@ export class AppComponent {
     this.WatchModeService.getTitles().subscribe((resp: any)=>{
       console.log(resp)
       this.titles = resp.results.map((item: any): TVTitle =>{
-        console.log(item)
+        //the response object will always be what the API gives us 
+        //so we need to specifcally map the results we want ourselves 
+        //defining the fields we want will ensure we don't deal with excess data
         return {
           name: item.name,
           backdrop_path: item.backdrop_path,
@@ -77,12 +79,22 @@ export class AppComponent {
       console.log(this.titles)
     });
      this.WatchModeService.getTitle().subscribe((resp:MovieTitle)=>{
-
-      console.log("Original Title:", this.title)
-      console.log("Response:", resp)
-      this.title = resp;
-      console.log("MOVIE TITLE:", this.title)
+      this.title = {
+        genres: resp.genres,
+        id: resp.id,
+        imdb_id: resp.imdb_id,
+        origin_country: resp.origin_country,
+        original_language: resp.original_language,
+        original_title: resp.original_title,
+        overview: resp.overview,
+        release_date: resp.release_date,
+        runtime: resp.runtime,
+        spoken_languages: resp.spoken_languages,
+        tagline: resp.tagline,
+        title: resp.title
+      }
+      console.log(this.title);
     })
-    console.log(this.titles);
+
   }
 }

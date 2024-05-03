@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { WatchModeService } from './watch-mode.service';
+import { MoveApiService } from './move-api-service';
 
 describe('WatchModeService', () => {
-  let service: WatchModeService;
+  let service: MoveApiService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(WatchModeService);
+    service = TestBed.inject(MoveApiService);
   });
 
   it('should be created', () => {

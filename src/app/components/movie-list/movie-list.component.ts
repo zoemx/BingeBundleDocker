@@ -3,7 +3,7 @@ import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 
-import { WatchModeService } from '../../services/watch-mode.service';
+import { MoveApiService } from '../../services/move-api-service';
 
 @Component({
   selector: 'app-movie-list',
@@ -15,10 +15,13 @@ import { WatchModeService } from '../../services/watch-mode.service';
 export class MovieListComponent {
   movie_titles: any[] = [];
 
-  constructor(private WatchModeService: WatchModeService) {}
+  constructor(private MoveApiService: MoveApiService){
+  }
 
-  ngOnInit(): void {
-    this.WatchModeService.getMovieTitles().subscribe((resp: any) => {
+  ngOnInit():void{
+    //TODO: change this api method to what Lavon and Zoe created last week. 
+    //Shami- sorry I needed to change this for a merge conflict
+    this.MoveApiService.getHomepageMovieTitles().subscribe((resp:any) => {
       console.log(resp);
       resp.results.forEach((movie: any) => {
         this.movie_titles.push(movie);

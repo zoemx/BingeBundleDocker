@@ -1,6 +1,10 @@
 # BingeBundler
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.1.
+This is a Angular & Material UI Frontend Project that allows users to collect media titles and bundle their related services together. 
+
+![image](https://github.com/AngularMaterial/AngularMaterial/assets/146030630/e1c1bc66-f753-4a65-8900-5ef1ee5473e0)
+
 
 ## Development server
 

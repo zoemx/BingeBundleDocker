@@ -1,25 +1,38 @@
 .movie-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(13%, 1fr));
-    grid-gap: 10px;
-    padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18%, 1fr));
+  grid-gap: 1vw;
+  padding: 2vw;
+  grid-auto-rows: 420px;
 }
 
 h2 {
-    text-align: center; 
-    color: #EFE7DA;
+  color: #efe7da;
+  text-align: center;
 }
-.movie-card{
-    width: 300px;
-    height: 475px;
+
+.movie-card {
+  height: 400px;
+  position: relative;
+  background-color: white;
 }
 
 .movie-card img {
-    width: 300px;
-    height: 400px;
+  height: 85%;
+  width: 100%;
 }
 
 .movie-card:hover {
-    box-shadow: 0 0 10px 5px #FFE658;
-    cursor: pointer;
+  box-shadow: 0 0 10px 5px #ffe658;
+  cursor: pointer;
+}
+/* TODO: change navigation buttons */
+mat-paginator {
+  margin-top: -2em;
+  color: #EFE7DA;
+  background-color: #9A031E;
+  border-radius: 50px;
+  font-size: 100%;
+  width: auto;
+  float:right;
 }

@@ -56,8 +56,8 @@ export class AppComponent {
   constructor(private MovieApiService: MovieApiService){
   }
 
-  ngOnInit():void{
-    this.MovieApiService.getHomepageTVTitles().subscribe((resp: any)=>{
+  ngOnInit(page: number = 1):void{
+    this.MovieApiService.getHomepageTVTitles(page).subscribe((resp: any)=>{
       console.log(resp)
       this.titles = resp.results.map((item: any): TVTitle =>{
         //the response object will always be what the API gives us 

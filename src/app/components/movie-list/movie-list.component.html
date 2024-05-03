@@ -1,13 +1,11 @@
 <div class="title">
-    <h2>MOVIES</h2>
-  </div>
-<div class="movie-grid" >
+  <h2>MOVIES</h2>
+</div>
+<div class="movie-grid">
   <div class="box" *ngFor="let movie of movie_titles">
     <mat-card class="movie-card">
-      <img
-        src="https://image.tmdb.org/t/p/original/{{movie.poster_path}}"
-      />
-      <mat-card-content>{{movie.original_title}}</mat-card-content>
+      <img ngSrc="https://image.tmdb.org/t/p/original/{{ movie.poster_path }}" height="400" width="300" />
+      <mat-card-content>{{ movie.original_title }}</mat-card-content>
       <div class="icon-container">
         <mat-icon>search</mat-icon>
         <mat-icon>favorite</mat-icon>
@@ -15,4 +13,12 @@
       </div>
     </mat-card>
   </div>
-  </div>
+</div>
+<div>
+<mat-paginator [length]="total_movie_results"
+[pageSize]="20"
+[pageIndex]="currentpage"
+[showFirstLastButtons]="true"
+(page)="pageChangeEvent($event)"
+aria-label="Select Movie Page"></mat-paginator>
+</div>

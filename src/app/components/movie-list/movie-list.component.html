@@ -14,3 +14,11 @@
     </mat-card>
   </div>
 </div>
+<div>
+<mat-paginator [length]="total_movie_results"
+[pageSize]="20"
+[pageIndex]="currentpage"
+[showFirstLastButtons]="true"
+(page)="pageChangeEvent($event)"
+aria-label="Select Movie Page"></mat-paginator>
+</div>

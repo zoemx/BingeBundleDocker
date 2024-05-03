@@ -21,9 +21,9 @@ import { MoveApiService } from '../../services/move-api-service';
 })
 export class TvListComponent {
   tv_titles: Set<any> = new Set();
-  total_results!: number;
+  total_results: number = 100;
   currentPage: number = 0;
-  movie_page: number = 1;
+  tv_page: number = 1;
   constructor(private MoveApiService: MoveApiService) {}
   ngOnInit(): void {
     this.getTvShows();
@@ -31,7 +31,7 @@ export class TvListComponent {
 
   getTvShows(page: number = 1) {
     this.MoveApiService.getHomepageTVTitles(page).subscribe((resp: any) => {
-      this.total_results = resp.total_results;
+      // this.total_results = resp.total_results;
       this.tv_titles = resp.results;
       resp.results.forEach((tv_show: any) => {
         this.tv_titles.add(tv_show);
@@ -41,9 +41,9 @@ export class TvListComponent {
 
   pageChangeEvent(pageEvent: PageEvent) {
     this.currentPage = pageEvent.pageIndex;
-    this.movie_page = this.currentPage + 1;
+    this.tv_page = this.currentPage + 1;
     console.log(this.currentPage);
-    console.log(this.movie_page);
-    this.getTvShows(this.movie_page);
+    console.log(this.tv_page);
+    this.getTvShows(this.tv_page);
   }
 }

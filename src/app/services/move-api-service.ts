@@ -17,7 +17,7 @@ export class MoveApiService {
    //TODO: Create requests for movies as well as TV
    getHomepageTVTitles(pageNumber: number){
     const headers = {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzZTExYTBhZDNjN2Y3NGE1ODY3MThkODRlYzdjMTNlNiIsInN1YiI6IjY2MTk1ODA2YWYzZGE2MDE2MzE4OTM1ZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.bEGEsfW6lpxXIlOoiGs616XICs0SfBIZlBSXvvVAR1w'}
-    return this.HttpClient.get<TVTitle[]>(`https://api.themoviedb.org/3/tv/popular?page=${pageNumber}`, {headers})
+    return this.HttpClient.get<TVTitle[]>(`https://api.themoviedb.org/3/tv/popular?page=${pageNumber}&limit=100`, {headers})
    } 
 
    //TODO: REDO this 
@@ -26,8 +26,8 @@ export class MoveApiService {
     return this.HttpClient.get<MovieTitle>(`https://api.themoviedb.org/3/movie/948549?language=en-US`, {headers})
    }
 
-   getHomepageMovieTitles(){
+   getHomepageMovieTitles(pageNumber: number){
     const headers = {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzZTExYTBhZDNjN2Y3NGE1ODY3MThkODRlYzdjMTNlNiIsInN1YiI6IjY2MTk1ODA2YWYzZGE2MDE2MzE4OTM1ZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.bEGEsfW6lpxXIlOoiGs616XICs0SfBIZlBSXvvVAR1w'}
-    return this.HttpClient.get<any>('https://api.themoviedb.org/3/movie/popular', {headers})
+    return this.HttpClient.get<any>(`https://api.themoviedb.org/3/movie/popular?page=${pageNumber}&limit=100`, {headers})
    }
 }

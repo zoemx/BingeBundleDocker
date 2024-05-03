@@ -16,10 +16,11 @@
     </mat-card>
   </div>
 </div>
+<div>
 <mat-paginator [length]="total_results"
 [pageSize]="20"
-[pageSizeOptions]="[20, 40, 50, 100]"
 [pageIndex]="currentPage"
 [showFirstLastButtons]="true"
 (page)="pageChangeEvent($event)"
 aria-label="Select page"></mat-paginator>
+</div>

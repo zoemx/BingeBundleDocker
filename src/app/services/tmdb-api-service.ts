@@ -5,7 +5,7 @@ import { MovieTitle, TVTitle } from '../../interfaces/streaming-Service';
 @Injectable({
   providedIn: 'root'
 })
-export class MoveApiService {
+export class MovieApiService {
   API_KEY = "c347zU1xGaZw7K0zHTlUqKmlIZjvFV1qywk9l9C7" 
 
   constructor(private HttpClient: HttpClient) {
@@ -19,6 +19,11 @@ export class MoveApiService {
     const headers = {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzZTExYTBhZDNjN2Y3NGE1ODY3MThkODRlYzdjMTNlNiIsInN1YiI6IjY2MTk1ODA2YWYzZGE2MDE2MzE4OTM1ZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.bEGEsfW6lpxXIlOoiGs616XICs0SfBIZlBSXvvVAR1w'}
     return this.HttpClient.get<TVTitle[]>('https://api.themoviedb.org/3/tv/popular', {headers})
    } 
+
+   getHomepageMovieTitles(){
+    const headers = {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzZTExYTBhZDNjN2Y3NGE1ODY3MThkODRlYzdjMTNlNiIsInN1YiI6IjY2MTk1ODA2YWYzZGE2MDE2MzE4OTM1ZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.bEGEsfW6lpxXIlOoiGs616XICs0SfBIZlBSXvvVAR1w'}
+    return this.HttpClient.get<MovieTitle[]>('https://api.themoviedb.org/3/movie/popular', {headers})
+   }
 
    //TODO: REDO this 
    getSingleMovieTitle(){

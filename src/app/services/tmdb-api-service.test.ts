@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { MoveApiService } from './move-api-service';
+import { MovieApiService } from './tmdb-api-service';
 
 describe('WatchModeService', () => {
-  let service: MoveApiService;
+  let service: MovieApiService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(MoveApiService);
+    service = TestBed.inject(MovieApiService);
   });
 
   it('should be created', () => {

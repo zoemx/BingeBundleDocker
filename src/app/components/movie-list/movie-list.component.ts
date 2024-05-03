@@ -3,7 +3,7 @@ import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 
-import { MoveApiService } from '../../services/move-api-service';
+import { MovieApiService } from '../../services/tmdb-api-service';
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 
 @Component({
@@ -19,7 +19,7 @@ export class MovieListComponent {
   currentpage: number = 0;
   movie_page: number = 1;
 
-  constructor(private MoveApiService: MoveApiService){
+  constructor(private MovieApiService: MovieApiService){
   }
 
   ngOnInit():void{
@@ -28,7 +28,7 @@ export class MovieListComponent {
     this.getMovies();
   }
   getMovies(page: number = 1) {
-    this.MoveApiService.getHomepageMovieTitles(page).subscribe((resp:any) => {
+    this.MovieApiService.getHomepageMovieTitles(page).subscribe((resp:any) => {
       // this.total_movie_results = resp.total_results;
       this.movie_titles = resp.results;
       console.log("Movie response: " ,resp);

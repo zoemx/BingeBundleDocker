@@ -4,7 +4,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 
-import { MoveApiService } from '../../services/move-api-service';
+import { MovieApiService } from '../../services/tmdb-api-service';
 
 @Component({
   selector: 'app-tv-list',
@@ -24,13 +24,13 @@ export class TvListComponent {
   total_results: number = 100;
   currentPage: number = 0;
   tv_page: number = 1;
-  constructor(private MoveApiService: MoveApiService) {}
+  constructor(private MovieApiService: MovieApiService) {}
   ngOnInit(): void {
     this.getTvShows();
   }
 
   getTvShows(page: number = 1) {
-    this.MoveApiService.getHomepageTVTitles(page).subscribe((resp: any) => {
+    this.MovieApiService.getHomepageTVTitles(page).subscribe((resp: any) => {
       // this.total_results = resp.total_results;
       this.tv_titles = resp.results;
       resp.results.forEach((tv_show: any) => {

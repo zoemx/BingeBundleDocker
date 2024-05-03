@@ -7,7 +7,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { CommonModule } from '@angular/common';
-import { MoveApiService } from './services/move-api-service';
+import { MovieApiService } from './services/tmdb-api-service';
 import { MovieTitle, TVTitle } from '../interfaces/streaming-Service';
 import { HeaderComponent } from './components/header/header.component';
 import { TvListComponent } from './components/tv-list/tv-list.component';
@@ -53,11 +53,11 @@ export class AppComponent {
   titles: TVTitle[] = [];
   
 
-  constructor(private MoveApiService: MoveApiService){
+  constructor(private MovieApiService: MovieApiService){
   }
 
   ngOnInit(page: number = 1):void{
-    this.MoveApiService.getHomepageTVTitles(page).subscribe((resp: any)=>{
+    this.MovieApiService.getHomepageTVTitles(page).subscribe((resp: any)=>{
       console.log(resp)
       this.titles = resp.results.map((item: any): TVTitle =>{
         //the response object will always be what the API gives us 
@@ -83,7 +83,7 @@ export class AppComponent {
       } )
       console.log(this.titles)
     });
-     this.MoveApiService.getSingleMovieTitle().subscribe((resp:MovieTitle)=>{
+     this.MovieApiService.getSingleMovieTitle().subscribe((resp:MovieTitle)=>{
       this.title = {
         genres: resp.genres,
         id: resp.id,

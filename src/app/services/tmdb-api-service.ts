@@ -5,7 +5,7 @@ import { MovieTitle, TVTitle } from '../../interfaces/streaming-Service';
 @Injectable({
   providedIn: 'root'
 })
-export class MoveApiService {
+export class MovieApiService {
   API_KEY = "c347zU1xGaZw7K0zHTlUqKmlIZjvFV1qywk9l9C7" 
 
   constructor(private HttpClient: HttpClient) {

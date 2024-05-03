@@ -5,14 +5,16 @@
       <div class="spacer"></div>
       <!-- Fix Search Bar -->
       <div class="search-bar">
-        <mat-form-field class="mat-input">
+      
+        
           <mat-icon class="search-icon">search</mat-icon>
-          <input
+          <input #searchText
             matInput
-            type="search"
+            type="text"
             placeholder="Search for Movies of TV Show"
           />
-        </mat-form-field>
+       <button (click)="search(searchText.value)">Search</button>
+
       </div>
       <!-- Fix Search Bar -->
   

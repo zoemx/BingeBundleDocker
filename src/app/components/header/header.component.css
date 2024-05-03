@@ -14,3 +14,30 @@
 .search-icon {
     color: #212738;
 }
+
+/* ::ng-deep .mat-mdc-text-field-wrapper{
+    border-radius: 50px;
+    height: 45px;
+} */
+
+
+/* .mat-mdc-form-field {
+    font-size: 12px;
+    padding-top: 20px;
+    height: 65px;
+    
+} */
+
+input[type=text] {
+    float: left;
+    padding: 6px;
+    margin-top: 8px;
+    margin-left: 30px;
+    text-align: center;
+    border: none;
+    font-size: 17px;
+  }
+
+input{
+border-radius: 50px;
+}

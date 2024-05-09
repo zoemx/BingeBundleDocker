@@ -22,7 +22,7 @@ export class HeaderComponent {
   }
  // searchText:String = '';
 
-   search(searchText: String){
+   search(searchText: string){
     console.log(searchText)
    this.MovieApiService.getSearch(searchText).subscribe((results:any)=> {console.log("Search Results: ",results)})
     

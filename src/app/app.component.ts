@@ -13,8 +13,6 @@ import { HeaderComponent } from './components/header/header.component';
 import { TvListComponent } from './components/tv-list/tv-list.component';
 import { MovieListComponent } from './components/movie-list/movie-list.component';
 
-
-
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -29,39 +27,37 @@ import { MovieListComponent } from './components/movie-list/movie-list.component
     CommonModule,
     HeaderComponent,
     TvListComponent,
-    MovieListComponent
+    MovieListComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
 export class AppComponent {
   title: MovieTitle = {
-      genres: [],
-      id: 1,
-      imdb_id: "",
-      origin_country: [],
-      original_language: "",
-      original_title: "",
-      overview: "",
-      release_date: "",
-      runtime: 0,
-      spoken_languages: [],
-      tagline: "",
-      title: ""
-  }
+    genres: [],
+    id: 1,
+    imdb_id: '',
+    origin_country: [],
+    original_language: '',
+    original_title: '',
+    overview: '',
+    release_date: '',
+    runtime: 0,
+    spoken_languages: [],
+    tagline: '',
+    title: '',
+  };
   cards: any;
   titles: TVTitle[] = [];
-  
 
-  constructor(private MovieApiService: MovieApiService){
-  }
+  constructor(private movieApiService: MovieApiService) {}
 
-  ngOnInit(page: number = 1):void{
-    this.MovieApiService.getHomepageTVTitles(page).subscribe((resp: any)=>{
-      console.log(resp)
-      this.titles = resp.results.map((item: any): TVTitle =>{
-        //the response object will always be what the API gives us 
-        //so we need to specifcally map the results we want ourselves 
+  ngOnInit(page: number = 1): void {
+    this.movieApiService.getHomepageTVTitles(page).subscribe((resp: any) => {
+      console.log(resp);
+      this.titles = resp.results.map((item: any): TVTitle => {
+        //the response object will always be what the API gives us
+        //so we need to specifcally map the results we want ourselves
         //defining the fields we want will ensure we don't deal with excess data
         return {
           name: item.name,
@@ -79,11 +75,11 @@ export class AppComponent {
           // genres: item.genres
           // number_of_episodes: number
           // number_of_seasons: number
-        }
-      } )
-      console.log(this.titles)
+        };
+      });
+      console.log(this.titles);
     });
-     this.MovieApiService.getSingleMovieTitle().subscribe((resp:MovieTitle)=>{
+    this.movieApiService.getSingleMovieTitle().subscribe((resp: MovieTitle) => {
       this.title = {
         genres: resp.genres,
         id: resp.id,
@@ -96,10 +92,9 @@ export class AppComponent {
         runtime: resp.runtime,
         spoken_languages: resp.spoken_languages,
         tagline: resp.tagline,
-        title: resp.title
-      }
+        title: resp.title,
+      };
       console.log(this.title);
-    })
-
+    });
   }
 }

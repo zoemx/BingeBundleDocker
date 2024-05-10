@@ -23,7 +23,6 @@ export class MovieListComponent {
   }
 
   ngOnInit():void{
-    //Shami- sorry I needed to change this for a merge conflict
     this.getMovies();
   }
   getMovies(page: number = 1) {

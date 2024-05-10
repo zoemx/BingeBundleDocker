@@ -62,7 +62,6 @@ export interface TVTitle {
   genres?: Genre[];
   id: number;
   languages?: string[];
-
   number_of_episodes?: number;
   number_of_seasons?: number;
   origin_country?: string[];

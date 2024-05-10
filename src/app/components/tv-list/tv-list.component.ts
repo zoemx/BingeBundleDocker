@@ -3,7 +3,7 @@ import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
-
+import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 import { MovieApiService } from '../../services/tmdb-api-service';
 
 @Component({
@@ -15,6 +15,9 @@ import { MovieApiService } from '../../services/tmdb-api-service';
     MatCardModule,
     NgOptimizedImage,
     MatPaginatorModule,
+    RouterOutlet, 
+    RouterLink, 
+    RouterLinkActive
   ],
   templateUrl: './tv-list.component.html',
   styleUrl: './tv-list.component.css',
@@ -24,6 +27,9 @@ export class TvListComponent {
   total_results: number = 100;
   currentPage: number = 0;
   tv_page: number = 1;
+
+  //set up Input for detail page
+
   constructor(private MovieApiService: MovieApiService) {}
   ngOnInit(): void {
     this.getTvShows();

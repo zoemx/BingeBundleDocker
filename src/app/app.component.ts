@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -12,12 +12,12 @@ import { MovieTitle, TVTitle } from '../interfaces/streaming-Service';
 import { HeaderComponent } from './components/header/header.component';
 import { TvListComponent } from './components/tv-list/tv-list.component';
 import { MovieListComponent } from './components/movie-list/movie-list.component';
-
+import { HomepageComponent } from './homepage/homepage.component';
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
-    RouterOutlet,
+    RouterOutlet, RouterLink, RouterLinkActive,
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
@@ -28,6 +28,7 @@ import { MovieListComponent } from './components/movie-list/movie-list.component
     HeaderComponent,
     TvListComponent,
     MovieListComponent,
+    HomepageComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',

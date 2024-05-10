@@ -2,14 +2,14 @@ import { Component } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
-
+import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 import { MovieApiService } from '../../services/tmdb-api-service';
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-movie-list',
   standalone: true,
-  imports: [CommonModule, MatCardModule, MatIconModule, NgOptimizedImage, MatPaginatorModule],
+  imports: [CommonModule, MatCardModule, MatIconModule, NgOptimizedImage, MatPaginatorModule,  RouterOutlet, RouterLink, RouterLinkActive],
   templateUrl: './movie-list.component.html',
   styleUrl: './movie-list.component.css',
 })
@@ -19,6 +19,8 @@ export class MovieListComponent {
   currentpage: number = 0;
   movie_page: number = 1;
 
+  //set up Input for detail page
+   
   constructor(private MovieApiService: MovieApiService){
   }
 

@@ -19,6 +19,8 @@ export class MovieListComponent {
   currentpage: number = 0;
   movie_page: number = 1;
 
+  //set up Input for detail page
+   
   constructor(private MovieApiService: MovieApiService){
   }
 

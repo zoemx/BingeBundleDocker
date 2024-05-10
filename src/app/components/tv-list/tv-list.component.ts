@@ -24,6 +24,9 @@ export class TvListComponent {
   total_results: number = 100;
   currentPage: number = 0;
   tv_page: number = 1;
+
+  //set up Input for detail page
+
   constructor(private MovieApiService: MovieApiService) {}
   ngOnInit(): void {
     this.getTvShows();

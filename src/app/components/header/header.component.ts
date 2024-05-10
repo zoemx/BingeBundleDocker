@@ -4,6 +4,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MovieApiService } from '../../services/tmdb-api-service';
+import { InternalComponentService } from '../../services/internal-component.service';
+import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 
 
 
@@ -11,21 +13,18 @@ import { MovieApiService } from '../../services/tmdb-api-service';
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [MatToolbarModule, MatFormFieldModule, MatIconModule, MatInputModule],
+  imports: [MatToolbarModule, MatFormFieldModule, MatIconModule, MatInputModule, RouterLink, RouterLinkActive, RouterOutlet],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
   
-  constructor(private MovieApiService: MovieApiService){
-
-  }
- // searchText:String = '';
-
-   search(searchText: string){
+  constructor(private ComponentService: InternalComponentService){}
+ 
+ 
+  search(searchText:string) {
     console.log(searchText)
-   this.MovieApiService.getSearch(searchText).subscribe((results:any)=> {console.log("Search Results: ",results)})
-    
+    this.ComponentService.getSearchResults(searchText)
   }
 
 ngOnInit():void{

@@ -1,0 +1,40 @@
+<div class="search-section-title">
+    <H2>SEARCH RESULTS</H2>
+</div>
+<div class="search-grid">
+<div class="box" *ngFor="let item of search_results">
+    <div *ngIf="item.media_type == 'tv'">
+    <mat-card class="search-card">
+        <img ngSrc="https://image.tmdb.org/t/p/original/{{ item.poster_path }}" height="400" width="300" />
+        <mat-card-content>{{ item.original_name }}</mat-card-content>
+        <div class="icon-container">
+          <mat-icon>search</mat-icon>
+          <mat-icon>favorite</mat-icon>
+          <mat-icon>theaters</mat-icon>
+        </div>
+    </mat-card>
+</div>
+<div *ngIf="item.media_type == 'movie'">
+    <mat-card class="search-card">
+        <img ngSrc="https://image.tmdb.org/t/p/original/{{ item.poster_path }}" height="400" width="300" />
+        <mat-card-content>{{ item.original_title }}</mat-card-content>
+        <div class="icon-container">
+          <mat-icon>search</mat-icon>
+          <mat-icon>favorite</mat-icon>
+          <mat-icon>theaters</mat-icon>
+        </div>
+    </mat-card>
+</div>
+<div *ngIf="item.poster_path === null">
+    <mat-card class="search-card">
+        <img ngSrc="https://image.tmdb.org/t/p/original/{{ item.backdrop_path }}" height="400" width="300" />
+        <mat-card-content>{{ item.original_title }}</mat-card-content>
+        <div class="icon-container">
+          <mat-icon>search</mat-icon>
+          <mat-icon>favorite</mat-icon>
+          <mat-icon>theaters</mat-icon>
+        </div>
+    </mat-card>
+</div>
+</div>
+</div>

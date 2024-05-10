@@ -3,7 +3,7 @@
 </div>
 <div class="movie-grid">
   <div class="box" *ngFor="let tv_show of tv_titles">
-    <a routerLink="/details" routerLinkActive="active" ariaCurrentWhenActive="page">
+    <a routerLink="/details" [queryParams]="{id: tv_show.id, type: 'tv'}" routerLinkActive="active" ariaCurrentWhenActive="page">
     <div>
       <mat-card class="movie-card">
         <img

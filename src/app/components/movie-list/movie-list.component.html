@@ -3,7 +3,7 @@
 </div>
 <div class="movie-grid">
   <div class="box" *ngFor="let movie of movie_titles">
-    <a routerLink="/details" routerLinkActive="active" ariaCurrentWhenActive="page">
+    <a routerLink="/details" [queryParams]="{id: movie.id, type: 'movie'}" routerLinkActive="active" ariaCurrentWhenActive="page">
     <div>
     <mat-card class="movie-card">
       <img ngSrc="https://image.tmdb.org/t/p/original/{{ movie.poster_path }}" height="400" width="300" />

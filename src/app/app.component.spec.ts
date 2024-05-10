@@ -30,10 +30,17 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('binge-bundler');
   }); */
 
-  it('should render title', () => {
+  it('should render TVSHOWS section title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h2')?.textContent).toContain('TV SHOWS');
+    expect(compiled.querySelector('.movie-section-title')?.textContent).toContain('MOVIES');
+  });
+
+  it('should render Movie section title', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('.tv-section-title')?.textContent).toContain('TV SHOWS');
   });
 });

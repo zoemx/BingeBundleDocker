@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
-import { InternalComponentService } from '../../services/internal-component.service';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
-import { MovieApiService } from '../../services/tmdb-api-service';
+import { Subscription } from 'rxjs';
+import { MediaSearchServiceService } from '../../services/media-search-service.service';
 
 @Component({
   selector: 'app-search-list',
@@ -14,19 +14,16 @@ import { MovieApiService } from '../../services/tmdb-api-service';
   styleUrl: './search-list.component.css'
 })
 export class SearchListComponent implements OnInit {
-  search_results: Set<any> = new Set();
-  subscription: any;
+  search_list: any[] = [];
+  subscription: Subscription | null = null;
 
-  constructor(private ComponentService: InternalComponentService) {}
+  constructor(private MediaSearchService: MediaSearchServiceService) {}
 
-  ngOnInit():void { 
+  ngOnInit():void {
     this.showSearchResults();
+    console.log("Search" ,this.search_list);
   }
 
-  // ngOnChanges() {
-  //   this.search_results.clear();
-  //   this.showSearchResults();
-  // }
 
   ngOnDestroy() {
     if (this.subscription) {
@@ -36,12 +33,11 @@ export class SearchListComponent implements OnInit {
 
 
   showSearchResults() {
-    this.ComponentService.getResults().subscribe(results => {
-      this.search_results.add(results);
-      console.log(this.search_results.size)
+    console.log("Search List Length", this.search_list.length);
+    this.MediaSearchService.getResults().subscribe(response => {
+      console.log(response);
+      this.search_list = response;
+      console.log("Search List Length", this.search_list.length);
     });
   }
-
-  
-
 }

@@ -5,33 +5,30 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MovieApiService } from '../../services/tmdb-api-service';
 
-
-
-
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [MatToolbarModule, MatFormFieldModule, MatIconModule, MatInputModule],
+  imports: [
+    MatToolbarModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatInputModule,
+  ],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.css'
+  styleUrl: './header.component.css',
 })
 export class HeaderComponent {
-  
-  constructor(private MovieApiService: MovieApiService){
+  constructor(private MovieApiService: MovieApiService) {}
+  // searchText:String = '';
 
-  }
- // searchText:String = '';
-
-   search(searchText: string){
-    console.log(searchText)
-   this.MovieApiService.getSearch(searchText).subscribe((results:any)=> {console.log("Search Results: ",results)})
-    
+  search(searchText: string) {
+    // console.log(searchText)
+    this.MovieApiService.getSearch(searchText).subscribe((results: any) => {
+      // console.log("Search Results: ",results)
+    });
   }
 
-ngOnInit():void{
- 
-// this.MovieApiService.getSearch(searchText).subscribe((results:any)=> {console.log("Search Results: ",results)})
-}
-
-
+  ngOnInit(): void {
+    // this.MovieApiService.getSearch(searchText).subscribe((results:any)=> {console.log("Search Results: ",results)})
+  }
 }

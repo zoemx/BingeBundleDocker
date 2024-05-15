@@ -48,8 +48,8 @@ export class TvListComponent {
   pageChangeEvent(pageEvent: PageEvent) {
     this.currentPage = pageEvent.pageIndex;
     this.tv_page = this.currentPage + 1;
-    console.log(this.currentPage);
-    console.log(this.tv_page);
+    // console.log(this.currentPage);
+    // console.log(this.tv_page);
     this.getTvShows(this.tv_page);
   }
 }

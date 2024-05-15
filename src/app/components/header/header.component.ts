@@ -8,8 +8,6 @@ import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 import { MediaSearchServiceService } from '../../services/media-search-service.service';
 
 
-
-
 @Component({
   selector: 'app-header',
   standalone: true,

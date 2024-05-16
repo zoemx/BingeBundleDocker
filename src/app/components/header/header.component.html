@@ -1,30 +1,40 @@
 <div class="nav-bar">
     <!-- Potential Header Component -->
     <mat-toolbar class="mat-toolbar">
-      <span>Binge Bundle</span>
-      <div class="spacer"></div>
+      <span matTooltip="Title">Binge Bundle</span>
       <!-- Fix Search Bar -->
+      <div class="search-and-buttons">
       <div class="search-bar">
-          <mat-icon class="search-icon">search</mat-icon>
+        <a routerLink="/search" routerLinkActive="active" ariaCurrentWhenActive="page">
+          <button mat-icon-button (click)="search(searchText.value)" matTooltip="Search Button">
+            <mat-icon class="search-icon">search</mat-icon>
+          </button>
+         </a>
           <input #searchText
             matInput
             type="text"
-            placeholder="Search for Movies of TV Show"
+            placeholder="Search for Movies or TV Shows"
+            (keydown)="search(searchText.value)"
+            matTooltip="Input field"
           />
-          <a routerLink="/search" routerLinkActive="active" ariaCurrentWhenActive="page">
-       <button (click)="search(searchText.value)">Search</button>
-      </a>
       </div>
       <!-- Fix Search Bar -->
   
       <div class="btn">
-        <a mat-button>Action</a>
-        <a mat-button>Comedy</a>
+        <a routerLink="/" routerLinkActive="active-link" ariaCurrentWhenActive="page">
+        <button mat-icon-button matTooltip="Home Button" aria-label="Home Button">
+          <mat-icon>home</mat-icon>
+        </button>
+      </a>
+        <a routerLink="/details" routerLinkActive="active" ariaCurrentWhenActive="page" mat-raised-button>Details</a>
         <a mat-button>Romantic</a>
         <a mat-button>Drama</a>
         <a mat-button>Kids</a>
+        <button mat-icon-button matTooltip="Cart Page">
+          <mat-icon>shopping_cart</mat-icon>
+        </button>
       </div>
-      <mat-icon>shopping_cart</mat-icon>
+    </div>
     </mat-toolbar>
     <!-- Header Component -->
 </div>

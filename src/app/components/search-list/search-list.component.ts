@@ -4,7 +4,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { MediaSearchServiceService } from '../../services/media-search-service.service';
+import { MediaSearchService } from '../../services/media-search-service.service';
 
 @Component({
   selector: 'app-search-list',
@@ -26,7 +26,7 @@ export class SearchListComponent implements OnInit {
   subscription: Subscription | null = null;
   errorMessage: string | null = null;
 
-  constructor(private MediaSearchService: MediaSearchServiceService) {}
+  constructor(private MediaSearchService: MediaSearchService) {}
 
   ngOnInit(): void {
     this.showSearchResults();

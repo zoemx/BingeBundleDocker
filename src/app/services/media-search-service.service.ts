@@ -6,7 +6,7 @@ import { SearchTitles } from '../../interfaces/streaming-Service';
 @Injectable({
   providedIn: 'root'
 })
-export class MediaSearchServiceService {
+export class MediaSearchService {
   private search_results: BehaviorSubject<SearchTitles[]> =
   new BehaviorSubject<SearchTitles[]>([]);
 

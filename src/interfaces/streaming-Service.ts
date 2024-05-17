@@ -1,3 +1,16 @@
+export interface StreamingOptions{
+  logo_url: string;
+  name: string;
+  prices: Price[];
+}
+
+export interface Price{
+  plan: string;
+  price: number;
+  ads:boolean;
+}
+
+
 //Detail Page for the Movie
 //The data we recieve when clicking on a title card
 export interface MovieTitle {

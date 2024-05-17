@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { CommonModule, NgOptimizedImage, Location } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
+import { MatIconButton } from '@angular/material/button';
+import { MatIcon } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { MediaSearchService } from '../../services/media-search-service.service';
@@ -17,6 +20,9 @@ import { MediaSearchService } from '../../services/media-search-service.service'
     RouterOutlet,
     RouterLink,
     RouterLinkActive,
+    MatIconButton,
+    MatButtonModule,
+    MatIcon
   ],
   templateUrl: './search-list.component.html',
   styleUrl: './search-list.component.css',
@@ -26,7 +32,7 @@ export class SearchListComponent implements OnInit {
   subscription: Subscription | null = null;
   errorMessage: string | null = null;
 
-  constructor(private MediaSearchService: MediaSearchService) {}
+  constructor(private MediaSearchService: MediaSearchService, private _location: Location) {}
 
   ngOnInit(): void {
     this.showSearchResults();
@@ -53,5 +59,8 @@ export class SearchListComponent implements OnInit {
         this.errorMessage = 'No search results found.';
       }
     });
+  }
+  backClicked() {
+    this._location.back();
   }
 }

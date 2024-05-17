@@ -8,6 +8,10 @@ import { streamingServices } from '../../../streaming_services';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+
+
 import { CommonModule, NgOptimizedImage, Location } from '@angular/common';
 import { CartItems } from '../../../interfaces/cart';
 import { CartService } from '../../services/cart-service.service';
@@ -15,7 +19,8 @@ import { CartService } from '../../services/cart-service.service';
 @Component({
   selector: 'app-details-page',
   standalone: true,
-  imports: [CommonModule, NgOptimizedImage, MatCardModule, MatIconButton, MatIcon, RouterLink, RouterLinkActive],
+  imports: [CommonModule, NgOptimizedImage, MatCardModule, MatIconButton, MatIcon, MatButtonModule, MatIconModule],
+
   templateUrl: './details-page.component.html',
   styleUrl: './details-page.component.css',
 })

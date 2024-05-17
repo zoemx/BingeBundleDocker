@@ -3,9 +3,13 @@ export interface Cart {
   cartId: number;
   cartItems: CartItems[];
 }
+
 export interface CartItems {
-  moviesStreamingProviders: MoviesStreamingProvider[];
-  tvStreamingProviders: TVStreamingProvider[];
+  provider_name: string;
+  logo_url: string; 
+  plan: string; 
+  price: number; 
+  titles: string[];
 }
 
 //Movies Providers res

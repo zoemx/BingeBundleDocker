@@ -1,4 +1,5 @@
 // cartItem
+
 export interface Cart {
   cartId: number;
   cartItems: CartItems[];
@@ -12,54 +13,60 @@ export interface CartItems {
   titles: string[];
 }
 
-//Movies Providers res
-export interface MoviesStreamingProvider {
-  mediaType: string
-  mediaTitle: string;
-  id: number;
-  results: {
-    US: {
-      link: string;
-      buy?: Buy[];
-      rent: Rent[];
-    };
-  };
-}
 
-//TV Providers res
-export interface TVStreamingProvider {
-  mediaType: string
-  mediaTitle: string;
-  id: number;
-  results: {
-    US: {
-      link: string;
-      flatrate: Rent[];
-    };
-  };
-}
+// export interface CartItems {
+//   moviesStreamingProviders: MoviesStreamingProvider[];
+//   tvStreamingProviders: TVStreamingProvider[];
+// }
 
-export interface Buy {
-  logo_path: string;
-  provider_id: number;
-  provider_name: string;
-  display_priority?: number;
-  price?: Plans[];
-}
+// //Movies Providers res
+// export interface MoviesStreamingProvider {
+//   mediaType: string
+//   mediaTitle: string;
+//   id: number;
+//   results: {
+//     US: {
+//       link: string;
+//       buy?: Buy[];
+//       rent: Rent[];
+//     };
+//   };
+// }
 
-export interface Rent {
-  logo_path: string;
-  provider_id: number;
-  provider_name: string;
-  display_priority?: number;
-  plan: Plans[];
-}
+// //TV Providers res
+// export interface TVStreamingProvider {
+//   mediaType: string
+//   mediaTitle: string;
+//   id: number;
+//   results: {
+//     US: {
+//       link: string;
+//       flatrate: Rent[];
+//     };
+//   };
+// }
 
-export interface Plans {
-  plan: string;
-  price: string;
-  ads: boolean;
-}
+// export interface Buy {
+//   logo_path: string;
+//   provider_id: number;
+//   provider_name: string;
+//   display_priority?: number;
+//   price?: Plans[];
+// }
+
+// export interface Rent {
+//   logo_path: string;
+//   provider_id: number;
+//   provider_name: string;
+//   display_priority?: number;
+//   plan: Plans[];
+// }
+
+// export interface Plans {
+//   plan: string;
+//   price: string;
+//   ads: boolean;
+// }
 
 // Example response from https://api.themoviedb.org/3/movie/{movie_id}/watch/providers
 

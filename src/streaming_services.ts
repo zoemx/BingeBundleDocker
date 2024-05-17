@@ -307,6 +307,7 @@ export const streamingServices = [
     },
     {
         "name": "BritBox",
+        "other_names": ['BritBox Amazon Channel'],
         "logo_url": "https://upload.wikimedia.org/wikipedia/en/thumb/d/d4/BritBox_logo.svg/1280px-BritBox_logo.svg.png",
         "prices":[
             {

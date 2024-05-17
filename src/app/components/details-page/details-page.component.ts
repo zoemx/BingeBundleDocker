@@ -4,6 +4,8 @@ import { Observable, map } from 'rxjs';
 import { MovieApiService } from '../../services/tmdb-api-service';
 import { MovieTitle, TVTitle } from '../../../interfaces/streaming-Service';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { StreamingOptions } from '../../../interfaces/streaming-Service';
+import { streamingServices } from '../../../streaming_services';
 
 @Component({
   selector: 'app-details-page',
@@ -15,6 +17,7 @@ import { CommonModule, NgOptimizedImage } from '@angular/common';
 export class DetailsPageComponent {
   // id of movie or tv from "query_params"
   id!: number;
+  
   // type of media title
   type!: string;
 
@@ -23,6 +26,9 @@ export class DetailsPageComponent {
 
   // the tv data
   tvDetails!: TVTitle;
+
+  // the streaming service information 
+  steamingProviders!:StreamingOptions[];
 
   constructor(
     private route: ActivatedRoute,
@@ -56,6 +62,20 @@ export class DetailsPageComponent {
           number_of_seasons: res.number_of_seasons,
         };
       });
+      this.movieApiServices.getTVProviders(this.id).subscribe((res: any)=>{
+        //get only the US streaming providers 
+        const usData = res.results['US']
+        //get only the flatrate ones, and map through 
+        this.steamingProviders = usData.flatrate.map((provider: any) => {
+          const matchingService = streamingServices.find((service) =>
+            service.name === provider.provider_name ||
+            service.other_names?.includes(provider.provider_name)
+          );
+          return matchingService; // Only return the matching service (no null)
+        })
+        .filter((service:any) => service);
+        console.log(this.steamingProviders)
+      })
     }
     if (this.type === 'movie') {
       this.movieApiServices.getMovieDetails(this.id).subscribe((res: any) => {
@@ -76,6 +96,21 @@ export class DetailsPageComponent {
           poster_path: res.poster_path
         };
       });
+      this.movieApiServices.getMovieProviders(this.id).subscribe((res: any)=>{
+        //get only the US streaming providers 
+        const usData = res.results['US']
+        //get only the flatrate ones, and map through 
+        console.log(res.results)
+        this.steamingProviders = usData.flatrate.map((provider: any) => {
+          const matchingService = streamingServices.find((service) =>
+            service.name === provider.provider_name ||
+            service.other_names?.includes(provider.provider_name)
+          );
+          return matchingService; // Only return the matching service (no null)
+        })
+        .filter((service:any) => service);
+        console.log(this.steamingProviders)
+      })
     }
   }
 }

@@ -3,6 +3,8 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.1.
 This is a Angular & Material UI Frontend Project that allows users to collect media titles and bundle their related services together. 
 
+Check out the [delpoyed version](https://deploy-preview-48--calm-alfajores-8b0b04.netlify.app/)
+
 ![image](https://github.com/AngularMaterial/AngularMaterial/assets/146030630/e1c1bc66-f753-4a65-8900-5ef1ee5473e0)
 
 

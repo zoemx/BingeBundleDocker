@@ -1,14 +1,18 @@
 .mat-toolbar {
-  background-color: #9a031e;
-  color: #efe7da;
+    background-color: #9A031E;
+    color: #EFE7DA;
+    display: flex;
+    justify-content: space-between;
 }
 
 .btn a {
-  color: #efe7da;
+    color: inherit;
+    background-color: inherit;
 }
 
-.spacer {
-  flex: 1 1 auto;
+.search-and-buttons {
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .search-icon {
@@ -19,28 +23,19 @@ a {
   color: unset;
   text-decoration: none; /* no underline */
 }
-/* ::ng-deep .mat-mdc-text-field-wrapper{
-    border-radius: 50px;
-    height: 45px;
-} */
 
-/* .mat-mdc-form-field {
-    font-size: 12px;
-    padding-top: 20px;
-    height: 65px;
-    
-} */
-
-input[type="text"] {
-  float: left;
-  padding: 6px;
-  margin-top: 8px;
-  margin-left: 30px;
-  text-align: center;
-  border: none;
-  font-size: 17px;
+.search-bar {
+    padding: 0px 56px 0px 8px;
+    background: #eaf1fb;
+    border-radius: 32px;
+    display: flex;
+    align-items: center;
 }
 
 input {
-  border-radius: 50px;
+    font-size: 1.1rem;
+    outline: none;
+    border: none;
+    background: inherit;
+    min-width: 352px;
 }

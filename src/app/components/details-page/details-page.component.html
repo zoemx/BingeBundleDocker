@@ -25,11 +25,11 @@
         <li>Provider: {{provider.name}}</li>
         <ul>
           <div *ngFor="let price of provider.prices">
-              <a>
+          
                 <button (click)="addToCart(provider, tvDetails, price)">
                   {{price.plan}} : {{price.price}}
                 </button>
-              </a>
+           
           </div>
         </ul>
       </ul>
@@ -64,11 +64,11 @@
           <li>Provider: {{provider.name}}</li>
           <ul>
             <div *ngFor="let price of provider.prices">
-                <a>
+              
                   <button (click)="addToCart(provider, tvDetails, price)">
                     {{price.plan}} : {{price.price}}
                   </button>
-                </a>
+               
             </div>
           </ul>
         </ul>

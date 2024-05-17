@@ -38,3 +38,8 @@ button {
   color: inherit;
   background-color: inherit;
 }
+
+button:hover{
+  cursor: pointer;
+  font-weight: bold;
+}

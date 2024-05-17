@@ -8,12 +8,16 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class CartService {
   private cart: BehaviorSubject<CartItems[]> =
   new BehaviorSubject<CartItems[]>([]);
- 
+  
+  private bundleTotal: BehaviorSubject<number> = 
+  new BehaviorSubject<number>(0);
+
   constructor() { }
 
   getCart():Observable<CartItems[]>{
     return this.cart.asObservable();
   }
+
 
   addToCart(CartItems:CartItems):void{
     //get provider name

@@ -1,29 +1,26 @@
 <div class="cart">
-
   <div>
     <h1>Bundle Total</h1>
   </div>
-  <div>
-    Total: ${{bundleTotal}}
-  </div>
-  <mat-card class="cart" *ngFor="let item of testItem">
+  <div>Total: ${{ bundleTotal }}</div>
+  <mat-card class="cart" *ngFor="let item of cart">
     <mat-card-header>
-      <mat-card-title >
- <img mat-card-sm-image
-            src='{{ item.logo_url }}'
-        alt="{{ item.provider_name }} logo"
-      />
+      <mat-card-title>
+        <img
+          mat-card-sm-image
+          src="{{ item.logo_url }}"
+          alt="{{ item.provider_name }} logo"
+        />
 
-      <h3>{{ item.provider_name}}</h3>
-      <h5>{{item.plan}}</h5>
-      <h5>{{item.price}}</h5>
-</mat-card-title>
-</mat-card-header>
-<mat-card-content *ngFor="let title of item.titles">
-  <h4>{{title}}</h4>
+        <h3>{{ item.provider_name }}</h3>
+        <h5>{{ item.plan }}</h5>
+        <h5>{{ item.price }}</h5>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content *ngFor="let title of item.titles">
+      <h4>{{ title }}</h4>
       <!-- <h5>poster</h5>
       <h5>movie/tv icon</h5> -->
-</mat-card-content>
-</mat-card>
-
+    </mat-card-content>
+  </mat-card>
 </div>

@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable, map } from 'rxjs';
 import { MovieApiService } from '../../services/tmdb-api-service';
 import { MovieTitle, TVTitle } from '../../../interfaces/streaming-Service';
-import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { CommonModule, NgOptimizedImage, Location } from '@angular/common';
 
 @Component({
   selector: 'app-details-page',
@@ -26,7 +26,8 @@ export class DetailsPageComponent {
 
   constructor(
     private route: ActivatedRoute,
-    private movieApiServices: MovieApiService
+    private movieApiServices: MovieApiService,
+    private _location: Location
   ) {} // Inject ActivatedRoute
 
   // retrieving the media title info/fields
@@ -78,4 +79,8 @@ export class DetailsPageComponent {
       });
     }
   }
+  backClicked() {
+    this._location.back();
+  }
+  
 }

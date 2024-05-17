@@ -5,6 +5,7 @@ import { MatIconButton } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatToolbar } from '@angular/material/toolbar';
 import { MovieApiService } from '../../services/tmdb-api-service';
+
 import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 import { MediaSearchService } from '../../services/media-search-service.service';
 import { MatTooltip } from '@angular/material/tooltip';
@@ -15,9 +16,10 @@ import { MatTooltip } from '@angular/material/tooltip';
   standalone: true,
   imports: [MatButtonModule, MatToolbar, MatTooltip, MatIconModule, MatInputModule, RouterLink, RouterLinkActive, RouterOutlet, MatIconButton],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.css'
+  styleUrl: './header.component.css',
 })
 export class HeaderComponent {
+
   
   constructor(private MediaSearchService: MediaSearchService){}
  
@@ -28,6 +30,7 @@ export class HeaderComponent {
   }
 
 ngOnInit():void{}
+
 
 
 }

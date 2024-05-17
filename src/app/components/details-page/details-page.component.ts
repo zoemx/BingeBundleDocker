@@ -3,14 +3,17 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable, map } from 'rxjs';
 import { MovieApiService } from '../../services/tmdb-api-service';
 import { MovieTitle, TVTitle } from '../../../interfaces/streaming-Service';
-import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { StreamingOptions } from '../../../interfaces/streaming-Service';
 import { streamingServices } from '../../../streaming_services';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconButton } from '@angular/material/button';
+import { MatIcon } from '@angular/material/icon';
+import { CommonModule, NgOptimizedImage, Location } from '@angular/common';
 
 @Component({
   selector: 'app-details-page',
   standalone: true,
-  imports: [CommonModule, NgOptimizedImage],
+  imports: [CommonModule, NgOptimizedImage, MatCardModule, MatIconButton, MatIcon],
   templateUrl: './details-page.component.html',
   styleUrl: './details-page.component.css',
 })
@@ -32,7 +35,8 @@ export class DetailsPageComponent {
 
   constructor(
     private route: ActivatedRoute,
-    private movieApiServices: MovieApiService
+    private movieApiServices: MovieApiService,
+    private _location: Location
   ) {} // Inject ActivatedRoute
 
   // retrieving the media title info/fields
@@ -43,7 +47,7 @@ export class DetailsPageComponent {
 
     if (this.type === 'tv') {
       this.movieApiServices.getTVDetails(this.id).subscribe((res: any) => {
-        // console.log(res);
+        console.log("Details:" ,res);
         this.tvDetails = {
           name: res.name,
           backdrop_path: res.backdrop_path,
@@ -60,6 +64,7 @@ export class DetailsPageComponent {
           genres: res.genres,
           number_of_episodes: res.number_of_episodes,
           number_of_seasons: res.number_of_seasons,
+          networks: res.networks
         };
       });
       this.movieApiServices.getTVProviders(this.id).subscribe((res: any)=>{
@@ -79,7 +84,7 @@ export class DetailsPageComponent {
     }
     if (this.type === 'movie') {
       this.movieApiServices.getMovieDetails(this.id).subscribe((res: any) => {
-        // console.log(res);
+        console.log("Movie Details:" ,res);
         this.movieDetails = {
           genres: res.genres,
           id: res.id,
@@ -115,4 +120,8 @@ export class DetailsPageComponent {
       })
     }
   }
+  backClicked() {
+    this._location.back();
+  }
+  
 }

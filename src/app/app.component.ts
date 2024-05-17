@@ -12,6 +12,7 @@ import { MovieTitle, TVTitle } from '../interfaces/streaming-Service';
 import { HeaderComponent } from './components/header/header.component';
 import { TvListComponent } from './components/tv-list/tv-list.component';
 import { MovieListComponent } from './components/movie-list/movie-list.component';
+import { SearchComponentComponent } from './components/search-component/search-component.component';
 
 
 
@@ -29,7 +30,8 @@ import { MovieListComponent } from './components/movie-list/movie-list.component
     CommonModule,
     HeaderComponent,
     TvListComponent,
-    MovieListComponent
+    MovieListComponent,
+    SearchComponentComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',

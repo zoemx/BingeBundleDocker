@@ -1,14 +1,18 @@
+// cartItem
 export interface Cart {
-  cartId: number;
-  // How to name this field
-  // itemId: number;
-  itemName?: string;
-  id: number;
-  providers: Providers;
+  cartId?: number;
+  cartItems?: CartItems[];
+}
+export interface CartItems {
+  itemId?: number;
+  mediaTitle?: string;
+  streamingProviders?: StreamingProvider;
 }
 
-export interface Providers {
-  results?: {
+// mirroring the api response
+export interface StreamingProvider {
+  id: number;
+  results: {
     US: {
       link: string;
       buy: Buy[];

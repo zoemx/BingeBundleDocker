@@ -1,29 +1,29 @@
-<p>cart-page works!</p>
-<div>
+<div class="cart">
+
   <div>
     <h1>Bundle Total</h1>
-    <h4>Total: $83.54</h4>
   </div>
-
-  <div *ngIf="testCart" class="cart-div">
-    <div *ngFor="let item of ">
-      <div>
-      <!-- <div *ngIf="testCart.cartItems.moviesStreamingProviders"> -->
-        <h2>Movies</h2>
-        
-      </div>
-
-      <div>
-      <!-- <div *ngIf="testCart.cartItems.tvStreamingProviders"> -->
-        <h2>TV Shows</h2>
-      </div>
-    </div>
+  <div>
+    Total: ${{bundleTotal}}
   </div>
-  <div></div>
-  <div></div>
+  <mat-card class="cart" *ngFor="let item of testItem">
+    <mat-card-header>
+      <mat-card-title >
+ <img mat-card-sm-image
+            src='{{ item.logo_url }}'
+        alt="{{ item.provider_name }} logo"
+      />
+
+      <h3>{{ item.provider_name}}</h3>
+      <h5>{{item.plan}}</h5>
+      <h5>{{item.price}}</h5>
+</mat-card-title>
+</mat-card-header>
+<mat-card-content *ngFor="let title of item.titles">
+  <h4>{{title}}</h4>
+      <!-- <h5>poster</h5>
+      <h5>movie/tv icon</h5> -->
+</mat-card-content>
+</mat-card>
+
 </div>
-
-<!-- <div>
-    {{streamingProviders.results.US.buy[0].provider_name}}
-    {{testCart.cartItems[0].streamingProviders?.id}}
-</div> -->

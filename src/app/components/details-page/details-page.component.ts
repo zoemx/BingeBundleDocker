@@ -96,6 +96,8 @@ export class DetailsPageComponent {
           poster_path: res.poster_path
         };
       });
+      //TODO: some movies are not available to stream, will need to consider this when displaying 
+      //provider info in html file. 
       this.movieApiServices.getMovieProviders(this.id).subscribe((res: any)=>{
         //get only the US streaming providers 
         const usData = res.results['US']

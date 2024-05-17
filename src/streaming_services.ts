@@ -1,4 +1,4 @@
-[
+export const streamingServices = [
     {
         "name": "Netflix",
         "logo_url": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Logonetflix.png",
@@ -157,6 +157,7 @@
     },
     {
         "name": "Paramount+",
+        "other_names": ['Paramount Plus'],
         "logo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Paramount_Plus.svg/2560px-Paramount_Plus.svg.png",
         "prices":[
             {

@@ -14,6 +14,6 @@ export const routes: Routes = [
   { path: '', component: HomepageComponent },
   { path: 'details', component: DetailsPageComponent },
   { path: 'cart', component: CartPageComponent },
+  { path: 'search', component: SearchListComponent},
   { path: '**', component: PageNotFoundComponent }, // Wildcard route for a 404 page
-  {path: 'search', component: SearchListComponent}
 ];

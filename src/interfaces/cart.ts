@@ -1,15 +1,16 @@
 // cartItem
-// export interface Cart {
-//   cartId: number;
-//   cartItems: CartItems[];
-// }
-// added fields w/n titles[] for title poster + title type icon
-export interface CartItem {
-  provider_name: string; 
+
+export interface Cart {
+  cartId: number;
+  cartItems: CartItems[];
+}
+
+export interface CartItems {
+  provider_name: string;
+  logo_url: string; 
   plan: string; 
   price: number; 
   titles: string[];
-  logo_url: string;
 }
 
 

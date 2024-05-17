@@ -1,19 +1,21 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink, RouterLinkActive } from '@angular/router';
 import { Observable, map } from 'rxjs';
 import { MovieApiService } from '../../services/tmdb-api-service';
-import { MovieTitle, TVTitle } from '../../../interfaces/streaming-Service';
+import { MovieTitle, Price, TVTitle } from '../../../interfaces/streaming-Service';
 import { StreamingOptions } from '../../../interfaces/streaming-Service';
 import { streamingServices } from '../../../streaming_services';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import { CommonModule, NgOptimizedImage, Location } from '@angular/common';
+import { CartItems } from '../../../interfaces/cart';
+import { CartService } from '../../services/cart-service.service';
 
 @Component({
   selector: 'app-details-page',
   standalone: true,
-  imports: [CommonModule, NgOptimizedImage, MatCardModule, MatIconButton, MatIcon],
+  imports: [CommonModule, NgOptimizedImage, MatCardModule, MatIconButton, MatIcon, RouterLink, RouterLinkActive],
   templateUrl: './details-page.component.html',
   styleUrl: './details-page.component.css',
 })
@@ -36,7 +38,8 @@ export class DetailsPageComponent {
   constructor(
     private route: ActivatedRoute,
     private movieApiServices: MovieApiService,
-    private _location: Location
+    private _location: Location,
+    private cartService: CartService
   ) {} // Inject ActivatedRoute
 
   // retrieving the media title info/fields
@@ -79,7 +82,7 @@ export class DetailsPageComponent {
           return matchingService; // Only return the matching service (no null)
         })
         .filter((service:any) => service);
-        console.log(this.steamingProviders)
+        console.log("Stream", this.steamingProviders)
       })
     }
     if (this.type === 'movie') {
@@ -116,12 +119,30 @@ export class DetailsPageComponent {
           return matchingService; // Only return the matching service (no null)
         })
         .filter((service:any) => service);
-        console.log(this.steamingProviders)
+        console.log("Movie Services: ", this.steamingProviders)
       })
     }
   }
   backClicked() {
     this._location.back();
   }
+
+  addToCart(provider:StreamingOptions, tvDetails:TVTitle, price:Price):void{
+    console.log("Added:", price)
+    const newCartItem:CartItems ={
+        provider_name: provider.name,
+        logo_url: provider.logo_url,
+        plan: price.plan,
+        price: price.price,
+        titles: [tvDetails.name]
+    }
+    console.log(newCartItem)
+    //Next we would add the item to the cart, 
+    //we'll check to see if a provider is already in the cart 
+    //maybe we'll trigger a modal saying that an existing provider is in the cart 
+    //"do you want to swap?"
+    this.cartService.addToCart(newCartItem)
+  }
   
 }
+

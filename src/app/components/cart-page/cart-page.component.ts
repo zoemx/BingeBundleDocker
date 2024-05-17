@@ -1,6 +1,6 @@
 import { Component, Provider } from '@angular/core';
 import { MovieApiService } from '../../services/tmdb-api-service';
-import { CartItem } from '../../../interfaces/cart';
+import { CartItems } from '../../../interfaces/cart';
 import { streamingServices } from '../../../streaming_services';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
@@ -16,11 +16,11 @@ import { MatIcon } from '@angular/material/icon';
 })
 export class CartPageComponent {
   
-  cart: CartItem[] = [];
+  cart: CartItems[] = [];
 
   bundleTotal : number = 0;
 
-  testItem: CartItem[] = [
+  testItem: CartItems[] = [
 
     {
       provider_name: 'Hulu',

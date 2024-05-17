@@ -15,9 +15,9 @@ export class CartService {
     return this.cart.asObservable();
   }
 
-  addToCart(cartItem:CartItems):void{
+  addToCart(CartItems:CartItems):void{
     //get provider name
-    const provider = cartItem.provider_name;
+    const provider = CartItems.provider_name;
     //check if provider is already in cart, if it is swap! 
     const currentCart = this.cart.getValue();
 
@@ -39,19 +39,19 @@ export class CartService {
         }
         
     } */
-    const existingProvider = currentCart.find(item => item.provider_name === cartItem.provider_name);
+    const existingProvider = currentCart.find(item => item.provider_name === CartItems.provider_name);
     if (existingProvider) {
       const updatedProvider = existingProvider;
       //if adding to an existing provider, check the titles
-      if(!existingProvider.titles.includes(cartItem.titles[0])){
-        const updatedTitles = [...existingProvider.titles, cartItem.titles[0]]
+      if(!existingProvider.titles.includes(CartItems.titles[0])){
+        const updatedTitles = [...existingProvider.titles, CartItems.titles[0]]
         updatedProvider.titles = updatedTitles 
       }
 
-      if(existingProvider.plan !== cartItem.plan){
-        console.log("plans are different, updating: ", existingProvider.plan, "to ", cartItem.plan)
-        updatedProvider.plan = cartItem.plan;
-        updatedProvider.price = cartItem.price;
+      if(existingProvider.plan !== CartItems.plan){
+        console.log("plans are different, updating: ", existingProvider.plan, "to ", CartItems.plan)
+        updatedProvider.plan = CartItems.plan;
+        updatedProvider.price = CartItems.price;
       }
 
       console.log("Updating");
@@ -61,7 +61,7 @@ export class CartService {
       this.cart.next(updatedCart);
     } else {
       // If not found, add the new provider to the cart
-      this.cart.next([...currentCart, cartItem]); // Spread operator to create new array
+      this.cart.next([...currentCart, CartItems]); // Spread operator to create new array
     }
     console.log(this.cart.getValue())
   }

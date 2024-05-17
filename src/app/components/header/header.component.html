@@ -10,6 +10,9 @@
     <div class="search-and-buttons">
     <div class="search-bar">
       <a routerLink="/search" routerLinkActive="active" ariaCurrentWhenActive="page">
+        <button mat-icon-button (click)="search(searchText.value)" matTooltip="Search Button">
+          <mat-icon class="search-icon">search</mat-icon>
+        </button>
         <input #searchText
           matInput
           type="text"
@@ -17,25 +20,9 @@
           (keydown)="search(searchText.value)"
           matTooltip="Input field"
         />
-        <button mat-icon-button (click)="search(searchText.value)" matTooltip="Search Button">
-          <mat-icon class="search-icon">search</mat-icon>
-        </button>
-
       </a>
-        <a routerLink="/details" routerLinkActive="active" ariaCurrentWhenActive="page" mat-raised-button>Details</a>
-        <div>
-      <a
-        routerLink="/cart"
-        routerLinkActive="active"
-        ariaCurrentWhenActive="page"
-      >
-        <mat-icon>shopping_cart</mat-icon>
-      </a>
-
-       </a>
-        
-
     </div>
+  </div>
     <!-- Fix Search Bar -->
 
     <div class="btn">
@@ -45,14 +32,10 @@
       </button>
     </a>
       <a routerLink="/details" routerLinkActive="active" ariaCurrentWhenActive="page" mat-raised-button>Details</a>
-      <a mat-button>Romantic</a>
-      <a mat-button>Drama</a>
-      <a mat-button>Kids</a>
       <button mat-icon-button matTooltip="Cart Page">
         <mat-icon>shopping_cart</mat-icon>
       </button>
     </div>
-  </div>
   </mat-toolbar>
   <!-- Header Component -->
 </div>

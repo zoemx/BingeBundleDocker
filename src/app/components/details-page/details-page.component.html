@@ -1,80 +1,85 @@
 <div class="details" *ngIf="type === 'movie'">
+  <mat-card class="details">
   <div id="{{ id }}">
-    <!--
-        In case we need it
-        background={{movieDetails.backdrop_path}} -->
-    <h1>
+    <mat-card-header>
+      <mat-card-title>
       {{ movieDetails.title }}
-    </h1>
-    <ul>
-      {{
-        movieDetails.genres
-      }}
-    </ul>
-    <img
+  </mat-card-title>
+  <mat-card-subtitle>
+    <h3>Release Date: {{ movieDetails.release_date }}</h3>
+  </mat-card-subtitle>
+  </mat-card-header>
+    <img class="poster"
       ngSrc="https://image.tmdb.org/t/p/original/{{ movieDetails.poster_path }}"
       height="400"
       width="300"
     />
-    <h3>{{ movieDetails.tagline }}</h3>
+    <h3 class="tagline">{{ movieDetails.tagline }}</h3>
     <p>{{ movieDetails.overview }}</p>
+    <h3>Genres: </h3>
+    <ul *ngFor="let genre of movieDetails.genres">
+      {{ genre.name }}
+    </ul>
     <h3>{{ movieDetails.origin_country }}</h3>
     <h3>{{ movieDetails.original_language }}</h3>
-    <h3>{{ movieDetails.release_date }}</h3>
-    <h3>{{ movieDetails.runtime }}</h3>
+    <h3>Runtime: {{ movieDetails.runtime }} minutes</h3>
   </div>
+</mat-card>
 </div>
 
 <div class="details" *ngIf="type === 'tv'">
-  <div>
-    <img
+  <mat-card class="details-content">
+    <mat-card-header>
+      <mat-card-actions>
+        <a
+          routerLink="/"
+          routerLinkActive="active-link"
+          ariaCurrentWhenActive="page"
+        >
+          <button mat-icon-button matTooltip="Cart Page">
+            <mat-icon>arrow_circle_left</mat-icon>
+          </button>
+        </a>
+      </mat-card-actions>
+      <mat-card-title>
+        {{ tvDetails.name }}
+      </mat-card-title>
+      <mat-card-subtitle>
+        <b>First Air Year:</b> {{ tvDetails.first_air_date.substring(0, 4) }}
+      </mat-card-subtitle>
+    </mat-card-header>
+    <img class="poster"
       ngSrc="https://image.tmdb.org/t/p/original/{{ tvDetails.poster_path }}"
       height="400"
       width="300"
     />
-  </div>
-  <h1>
-    {{ tvDetails.name }}
-  </h1>
-  <h3>
-    {{ tvDetails.first_air_date[0] }}
-  </h3>
-  <h3>
-    {{ tvDetails.backdrop_path }}
-  </h3>
-  <h3>
-    {{ tvDetails.origin_country }}
-  </h3>
-  <h3>
-    {{ tvDetails.original_language }}
-  </h3>
-  <h3>
-    {{ tvDetails.original_name }}
-  </h3>
-  <h3>
-    {{ tvDetails.overview }}
-  </h3>
-  <h3>
-    {{ tvDetails.poster_path }}
-  </h3>
-  <h3>
-    {{ tvDetails.spoken_languages }}
-  </h3>
-  <h3>
-    {{ tvDetails.number_of_episodes }}
-  </h3>
-  <h3>
-    {{ tvDetails.genres }}
-  </h3>
-  <h3>
-    {{ tvDetails.languages }}
-  </h3>
-  <h3>
-    {{ tvDetails.tagline }}
-  </h3>
-  <h3>
-    {{ tvDetails.number_of_seasons }}
-  </h3>
+    <mat-card-content>
+      <h2 class="tagline">
+        {{ tvDetails.tagline }}
+      </h2>
+      <h4>Original Country: {{ tvDetails.origin_country }}</h4>
+      <h4>Original Language: {{ tvDetails.original_language }}</h4>
+      <h4>Original Name: {{ tvDetails.original_name }}</h4>
+      <h4>Description: {{ tvDetails.overview }}</h4>
+      <h4>
+        {{ tvDetails.spoken_languages }}
+      </h4>
+      <div class="providers" *ngFor="let network of tvDetails.networks">
+        <h4 >Networks: {{ network.name}}</h4>
+        <img src="https://image.tmdb.org/t/p/original{{ network.logo_path }}" />
+      </div>
+      <h4>Number of episodes: {{ tvDetails.number_of_episodes }}</h4>
+      <div class="genres" *ngFor="let genere of tvDetails.genres">
+        <h4>
+          {{ genere.name }}
+        </h4>
+      </div>
+      <h4>
+        {{ tvDetails.languages }}
+      </h4>
+      <h4>Number of Seasons: {{ tvDetails.number_of_seasons }}</h4>
+    </mat-card-content>
+  </mat-card>
 </div>
 <button mat-icon-button (click)="backClicked()">Back</button>
 

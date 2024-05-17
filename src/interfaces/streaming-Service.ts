@@ -28,6 +28,13 @@ export interface SpokenLanguage {
   name: string;
 }
 
+export interface Networks {
+  id: number;
+  logo_path: string;
+  name: string;
+  origin_country: string;
+}
+
 //////////////////////////////////////////////////////////
 //Detail Page for TV Show
 //const url = 'https://api.themoviedb.org/3/tv/series_id?language=en-US';
@@ -47,6 +54,7 @@ export interface TVTitle {
   poster_path?: string;
   spoken_languages?: SpokenLanguage[];
   tagline?: string;
+  networks?: Networks[];
 }
 
 export interface SearchTitles {

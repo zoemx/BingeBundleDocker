@@ -1,25 +1,43 @@
+// cartItem
 export interface Cart {
-  itemId: number;
-  itemName: string;
-  link: string;
-  buy: [
-    {
-      logo_path: string;
-      provider_id: number;
-      provider_name: string;
-      display_priority?: number;
-      price: string;
-    }
-  ];
-  rent: [
-    {
-      logo_path: string;
-      provider_id: number;
-      provider_name: string;
-      display_priority?: number;
-      price: string;
-    }
-  ];
+  cartId?: number;
+  cartItems?: CartItems[];
+}
+export interface CartItems {
+  itemId?: number;
+  mediaTitle?: string;
+  streamingProviders?: StreamingProvider;
+}
+
+// mirroring the api response
+export interface StreamingProvider {
+  id: number;
+  results: {
+    US: {
+      link: string;
+      buy: Buy[];
+      rent: Rent[];
+    };
+  };
+}
+
+export interface Buy {
+  logo_path: string;
+  provider_id: number;
+  provider_name: string;
+  display_priority?: number;
+  price?: Price[];
+}
+
+export interface Rent {
+  logo_path: string;
+  provider_id: number;
+  provider_name: string;
+  display_priority?: number;
+  price?: Price[];
+}
+export interface Price {
+  price: string;
 }
 
 

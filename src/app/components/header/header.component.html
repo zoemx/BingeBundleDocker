@@ -1,7 +1,11 @@
 <div class="nav-bar">
-    <!-- Potential Header Component -->
-    <mat-toolbar class="mat-toolbar">
-      <span matTooltip="Title">Binge Bundle</span>
+  <!-- Potential Header Component -->
+  <mat-toolbar class="mat-toolbar">
+    <div>
+      <a routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page">
+        <span>Binge Bundle</span>
+      </a>
+    </div>
       <!-- Fix Search Bar -->
       <div class="search-and-buttons">
       <div class="search-bar">
@@ -30,9 +34,15 @@
         <a mat-button>Romantic</a>
         <a mat-button>Drama</a>
         <a mat-button>Kids</a>
-        <button mat-icon-button matTooltip="Cart Page">
-          <mat-icon>shopping_cart</mat-icon>
-        </button>
+        <div>
+      <a
+        routerLink="/cart"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+      >
+        <mat-icon>shopping_cart</mat-icon>
+      </a>
+    </div>
       </div>
     </div>
     </mat-toolbar>

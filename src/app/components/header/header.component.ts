@@ -5,8 +5,7 @@ import { MatIconButton } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatToolbar } from '@angular/material/toolbar';
 import { MovieApiService } from '../../services/tmdb-api-service';
-
-import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { MediaSearchService } from '../../services/media-search-service.service';
 import { MatTooltip } from '@angular/material/tooltip';
 

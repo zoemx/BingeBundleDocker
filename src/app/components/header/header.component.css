@@ -16,7 +16,12 @@
 }
 
 .search-icon {
-    color: #212738;
+  color: #212738;
+}
+
+a {
+  color: unset;
+  text-decoration: none; /* no underline */
 }
 
 .search-bar {

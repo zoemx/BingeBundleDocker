@@ -12,7 +12,7 @@ import { MovieTitle, TVTitle } from '../interfaces/streaming-Service';
 import { HeaderComponent } from './components/header/header.component';
 import { TvListComponent } from './components/tv-list/tv-list.component';
 import { MovieListComponent } from './components/movie-list/movie-list.component';
-import { HomepageComponent } from './homepage/homepage.component';
+import { HomepageComponent } from './components/homepage/homepage.component';
 @Component({
   selector: 'app-root',
   standalone: true,

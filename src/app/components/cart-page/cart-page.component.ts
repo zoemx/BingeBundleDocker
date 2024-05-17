@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { MovieApiService } from '../services/tmdb-api-service';
-import { Cart } from '../../interfaces/cart';
+import { MovieApiService } from '../../services/tmdb-api-service';
+import { Cart } from '../../../interfaces/cart';
 
 @Component({
   selector: 'app-cart-page',

@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, map } from 'rxjs';
-import { MovieApiService } from '../services/tmdb-api-service';
-import { MovieTitle, TVTitle } from '../../interfaces/streaming-Service';
+import { MovieApiService } from '../../services/tmdb-api-service';
+import { MovieTitle, TVTitle } from '../../../interfaces/streaming-Service';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 
 @Component({

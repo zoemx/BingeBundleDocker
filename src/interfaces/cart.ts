@@ -1,22 +1,36 @@
 // cartItem
 export interface Cart {
-  cartId?: number;
-  cartItems?: CartItems[];
+  cartId: number;
+  cartItems: CartItems[];
 }
 export interface CartItems {
-  itemId?: number;
-  mediaTitle?: string;
-  streamingProviders?: StreamingProvider;
+  moviesStreamingProviders: MoviesStreamingProvider[];
+  tvStreamingProviders: TVStreamingProvider[];
 }
 
-// mirroring the api response
-export interface StreamingProvider {
+//Movies Providers res
+export interface MoviesStreamingProvider {
+  mediaType: string
+  mediaTitle: string;
   id: number;
   results: {
     US: {
       link: string;
-      buy: Buy[];
+      buy?: Buy[];
       rent: Rent[];
+    };
+  };
+}
+
+//TV Providers res
+export interface TVStreamingProvider {
+  mediaType: string
+  mediaTitle: string;
+  id: number;
+  results: {
+    US: {
+      link: string;
+      flatrate: Rent[];
     };
   };
 }
@@ -26,7 +40,7 @@ export interface Buy {
   provider_id: number;
   provider_name: string;
   display_priority?: number;
-  price?: Price[];
+  price?: Plans[];
 }
 
 export interface Rent {
@@ -34,12 +48,14 @@ export interface Rent {
   provider_id: number;
   provider_name: string;
   display_priority?: number;
-  price?: Price[];
-}
-export interface Price {
-  price: string;
+  plan: Plans[];
 }
 
+export interface Plans {
+  plan: string;
+  price: string;
+  ads: boolean;
+}
 
 // Example response from https://api.themoviedb.org/3/movie/{movie_id}/watch/providers
 

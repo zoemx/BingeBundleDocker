@@ -1,4 +1,29 @@
 <p>cart-page works!</p>
 <div>
-    {{streamingProviders.results.US.buy[0].provider_name}}
+  <div>
+    <h1>Bundle Total</h1>
+    <h4>Total: $83.54</h4>
+  </div>
+
+  <div *ngIf="testCart" class="cart-div">
+    <div *ngFor="let item of ">
+      <div>
+      <!-- <div *ngIf="testCart.cartItems.moviesStreamingProviders"> -->
+        <h2>Movies</h2>
+        
+      </div>
+
+      <div>
+      <!-- <div *ngIf="testCart.cartItems.tvStreamingProviders"> -->
+        <h2>TV Shows</h2>
+      </div>
+    </div>
+  </div>
+  <div></div>
+  <div></div>
 </div>
+
+<!-- <div>
+    {{streamingProviders.results.US.buy[0].provider_name}}
+    {{testCart.cartItems[0].streamingProviders?.id}}
+</div> -->

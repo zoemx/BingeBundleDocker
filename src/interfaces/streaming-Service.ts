@@ -1,27 +1,3 @@
-export interface StreamingService {
-  name: string;
-  logo_url: string;
-  prices: Price[];
-}
-
-export interface Price {
-  plan: string;
-  price: number;
-  ads: boolean;
-}
-
-//What we need/will be working this
-//All the info we need to display cards
-//WIP
-export interface cardTitle {
-  title: string;
-  year: string;
-  poster: string;
-  genre?: string[];
-  streaming_services: StreamingService[];
-}
-
-//////////////////////////////////////////////////////////////////////////
 //Detail Page for the Movie
 //The data we recieve when clicking on a title card
 export interface MovieTitle {

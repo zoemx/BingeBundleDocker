@@ -44,7 +44,7 @@ export class CartPageComponent {
       logo_url:
         'https://upload.wikimedia.org/wikipedia/commons/2/2f/Hulu_on_Disney%2B_logo.svg',
     },
-  ]; */
+  ];
 
   getBundleTotal(){
     this.testItem.map(item => {

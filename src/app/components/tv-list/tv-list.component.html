@@ -1,19 +1,25 @@
+<div class="tv-section-title">
 <h2>TV SHOWS</h2>
+</div>
 <div class="movie-grid">
   <div class="box" *ngFor="let tv_show of tv_titles">
-    <mat-card class="movie-card">
-      <img
-        ngSrc="https://image.tmdb.org/t/p/original/{{ tv_show.poster_path }}"
-        height="400"
-        width="300"
-      />
-      <mat-card-content>{{ tv_show.name }}</mat-card-content>
-      <div class="icon-container">
-        <mat-icon>search</mat-icon>
-        <mat-icon>favorite</mat-icon>
-        <mat-icon>theaters</mat-icon>
-      </div>
-    </mat-card>
+    <a routerLink="/details" [queryParams]="{id: tv_show.id, type: 'tv'}" routerLinkActive="active" ariaCurrentWhenActive="page">
+    <div>
+      <mat-card class="movie-card">
+        <img
+          ngSrc="https://image.tmdb.org/t/p/original/{{ tv_show.poster_path }}"
+          height="400"
+          width="300"
+        />
+        <mat-card-content>{{ tv_show.name }}</mat-card-content>
+        <div class="icon-container">
+          <mat-icon>search</mat-icon>
+          <mat-icon>favorite</mat-icon>
+          <mat-icon>theaters</mat-icon>
+        </div>
+      </mat-card>
+    </div>
+  </a>
   </div>
 </div>
 <div>

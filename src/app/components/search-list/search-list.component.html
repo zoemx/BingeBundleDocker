@@ -1,0 +1,31 @@
+<div class="search-section-title">
+  <H2>SEARCH RESULTS</H2>
+</div>
+<div class="error-message" *ngIf="errorMessage">
+  <h2>{{ errorMessage }}</h2>
+</div>
+<div class="search-grid">
+  <div class="box" *ngFor="let item of search_list">
+    <mat-card class="search-card">
+      <img
+        *ngIf="item.poster_path || item.backdrop_path"
+        [src]="
+          item.poster_path
+            ? 'https://image.tmdb.org/t/p/original/' + item.poster_path
+            : 'https://image.tmdb.org/t/p/original/' + item.backdrop_path
+        "
+        height="400"
+        width="300"
+      />
+      <mat-card-content>
+        {{ item.original_name ? item.original_name : item.original_title }}
+      </mat-card-content>
+      <div class="icon-container">
+        <mat-icon>search</mat-icon>
+        <mat-icon>favorite</mat-icon>
+        <mat-icon *ngIf="item.media_type === 'tv'">tv</mat-icon>
+        <mat-icon *ngIf="item.media_type === 'movie'">theaters</mat-icon>
+      </div>
+    </mat-card>
+  </div>
+</div>

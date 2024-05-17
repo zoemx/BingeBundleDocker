@@ -1,0 +1,78 @@
+<div class="details" *ngIf="type === 'movie'">
+  <div id="{{ id }}">
+    <!--
+        In case we need it
+        background={{movieDetails.backdrop_path}} -->
+    <h1>
+      {{ movieDetails.title }}
+    </h1>
+    <ul>
+      {{
+        movieDetails.genres
+      }}
+    </ul>
+    <img
+      ngSrc="https://image.tmdb.org/t/p/original/{{ movieDetails.poster_path }}"
+      height="400"
+      width="300"
+    />
+    <h3>{{ movieDetails.tagline }}</h3>
+    <p>{{ movieDetails.overview }}</p>
+    <h3>{{ movieDetails.origin_country }}</h3>
+    <h3>{{ movieDetails.original_language }}</h3>
+    <h3>{{ movieDetails.release_date }}</h3>
+    <h3>{{ movieDetails.runtime }}</h3>
+  </div>
+</div>
+
+<div class="details" *ngIf="type === 'tv'">
+  <div>
+    <img
+      ngSrc="https://image.tmdb.org/t/p/original/{{ tvDetails.poster_path }}"
+      height="400"
+      width="300"
+    />
+  </div>
+  <h1>
+    {{ tvDetails.name }}
+  </h1>
+  <h3>
+    {{ tvDetails.first_air_date[0] }}
+  </h3>
+  <h3>
+    {{ tvDetails.backdrop_path }}
+  </h3>
+  <h3>
+    {{ tvDetails.origin_country }}
+  </h3>
+  <h3>
+    {{ tvDetails.original_language }}
+  </h3>
+  <h3>
+    {{ tvDetails.original_name }}
+  </h3>
+  <h3>
+    {{ tvDetails.overview }}
+  </h3>
+  <h3>
+    {{ tvDetails.poster_path }}
+  </h3>
+  <h3>
+    {{ tvDetails.spoken_languages }}
+  </h3>
+  <h3>
+    {{ tvDetails.number_of_episodes }}
+  </h3>
+  <h3>
+    {{ tvDetails.genres }}
+  </h3>
+  <h3>
+    {{ tvDetails.languages }}
+  </h3>
+  <h3>
+    {{ tvDetails.tagline }}
+  </h3>
+  <h3>
+    {{ tvDetails.number_of_seasons }}
+  </h3>
+</div>

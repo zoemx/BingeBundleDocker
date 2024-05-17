@@ -1,43 +1,41 @@
 .mat-toolbar {
     background-color: #9A031E;
     color: #EFE7DA;
+    display: flex;
+    justify-content: space-between;
 }
 
-.btn a{
-    color: #EFE7DA;
+.btn a {
+    color: inherit;
+    background-color: inherit;
 }
 
-.spacer {
-    flex: 1 1 auto;
+.search-and-buttons {
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .search-icon {
-    color: #212738;
+  color: #212738;
 }
 
-/* ::ng-deep .mat-mdc-text-field-wrapper{
-    border-radius: 50px;
-    height: 45px;
-} */
+a {
+  color: unset;
+  text-decoration: none; /* no underline */
+}
 
+.search-bar {
+    padding: 0px 56px 0px 8px;
+    background: #eaf1fb;
+    border-radius: 32px;
+    display: flex;
+    align-items: center;
+}
 
-/* .mat-mdc-form-field {
-    font-size: 12px;
-    padding-top: 20px;
-    height: 65px;
-    
-} */
-
-input[type=text] {
-    float: left;
-    padding: 6px;
-    margin-top: 8px;
-    margin-left: 30px;
-    text-align: center;
+input {
+    font-size: 1.1rem;
+    outline: none;
     border: none;
-    font-size: 17px;
-  }
-
-input{
-border-radius: 50px;
+    background: inherit;
+    min-width: 352px;
 }

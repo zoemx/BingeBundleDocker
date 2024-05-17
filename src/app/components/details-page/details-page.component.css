@@ -1,4 +1,40 @@
-button{
-    color: inherit;
-    background-color: inherit;
+.details-page {
+  padding-top: 1%;
+}
+
+.details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 35px;
+  padding: 5px 0 0 5px;
+}
+
+mat-card {
+  width: 50%;
+  height: fit-content;
+  background-color: #fff5bd;
+  color: black;
+  opacity: 0.7;
+}
+
+.poster {
+  border-radius: 50px;
+}
+
+.tagline {
+  text-align: center;
+}
+
+.providers img {
+  height: 20px;
+}
+
+.summary {
+  text-align: center;
+}
+
+button {
+  color: inherit;
+  background-color: inherit;
 }

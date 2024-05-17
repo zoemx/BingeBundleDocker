@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink, RouterLinkActive } from '@angular/router';
 import { Observable, map } from 'rxjs';
 import { MovieApiService } from '../../services/tmdb-api-service';
 import { MovieTitle, Price, TVTitle } from '../../../interfaces/streaming-Service';
@@ -15,7 +15,7 @@ import { CartService } from '../../services/cart-service.service';
 @Component({
   selector: 'app-details-page',
   standalone: true,
-  imports: [CommonModule, NgOptimizedImage, MatCardModule, MatIconButton, MatIcon],
+  imports: [CommonModule, NgOptimizedImage, MatCardModule, MatIconButton, MatIcon, RouterLink, RouterLinkActive],
   templateUrl: './details-page.component.html',
   styleUrl: './details-page.component.css',
 })
@@ -82,7 +82,7 @@ export class DetailsPageComponent {
           return matchingService; // Only return the matching service (no null)
         })
         .filter((service:any) => service);
-        console.log(this.steamingProviders)
+        console.log("Stream", this.steamingProviders)
       })
     }
     if (this.type === 'movie') {
@@ -119,7 +119,7 @@ export class DetailsPageComponent {
           return matchingService; // Only return the matching service (no null)
         })
         .filter((service:any) => service);
-        console.log(this.steamingProviders)
+        console.log("Movie Services: ", this.steamingProviders)
       })
     }
   }

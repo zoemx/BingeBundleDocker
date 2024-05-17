@@ -20,6 +20,20 @@
     </span> </h3>
     <h3>Original Country: {{ movieDetails.origin_country }}</h3>
     <h3>Original Language: {{ movieDetails.original_language }}</h3>
+        <div *ngFor="let provider of steamingProviders">
+      <ul class="streaming_providers">
+        <li>Provider: {{provider.name}}</li>
+        <ul>
+          <div *ngFor="let price of provider.prices">
+              <a>
+                <button (click)="addToCart(provider, tvDetails, price)">
+                  {{price.plan}} : {{price.price}}
+                </button>
+              </a>
+          </div>
+        </ul>
+      </ul>
+    </div>
     <h3>Runtime: {{ movieDetails.runtime }} minutes</h3>
   </mat-card-subtitle>
   <img class="poster"
@@ -45,6 +59,20 @@
       <mat-card-subtitle>
         <h3><b>First Air Date:</b> {{ tvDetails.first_air_date }} </h3>
         <h2>{{ tvDetails.tagline }}</h2>
+        <div *ngFor="let provider of steamingProviders">
+        <ul class="streaming_providers">
+          <li>Provider: {{provider.name}}</li>
+          <ul>
+            <div *ngFor="let price of provider.prices">
+                <a>
+                  <button (click)="addToCart(provider, tvDetails, price)">
+                    {{price.plan}} : {{price.price}}
+                  </button>
+                </a>
+            </div>
+          </ul>
+        </ul>
+      </div>
         <h4>Original Country: {{ tvDetails.origin_country }}</h4>
       <h4>Original Language: {{ tvDetails.original_language }}</h4>
       <h4>Streaming Services: </h4>
@@ -67,8 +95,10 @@
     </mat-card-title-group>
     </mat-card-header>
     <mat-card-content>
+
       <h3 class="summary">Summary: </h3>
       <h4 class="summary">{{ tvDetails.overview }}</h4>
+
     </mat-card-content>
   </mat-card>
 </div>

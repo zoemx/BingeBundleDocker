@@ -13,7 +13,7 @@ import { CommonModule } from '@angular/common';
 export class CartPageComponent {
   // cartTotal: Cart[] = [{this.testCart}];
 
-  testCart: CartItems[] = [
+  testCart: CartItems[] = []/* [
     {
       moviesStreamingProviders: [
         {
@@ -79,7 +79,7 @@ export class CartPageComponent {
         },
       ],
     },
-  ];
+  ]; */
 
   // testCart: Cart =
 

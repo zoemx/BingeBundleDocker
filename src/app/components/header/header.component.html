@@ -1,31 +1,42 @@
 <div class="nav-bar">
-    <!-- Potential Header Component -->
-    <mat-toolbar class="mat-toolbar">
-      <span>Binge Bundle</span>
-      <div class="spacer"></div>
-      <!-- Fix Search Bar -->
-      <div class="search-bar">
-      
-        
-          <mat-icon class="search-icon">search</mat-icon>
-          <input #searchText
-            matInput
-            type="text"
-            placeholder="Search for Movies of TV Show"
-          />
-       <button (click)="search(searchText.value)">Search</button>
+  <!-- Potential Header Component -->
+  <mat-toolbar class="mat-toolbar">
+    <div>
+      <a routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page">
+        <span>Binge Bundle</span>
+      </a>
+    </div>
+    <div class="spacer"></div>
+    <!-- Fix Search Bar -->
+    <div class="search-bar">
+      <mat-icon class="search-icon">search</mat-icon>
+      <input
+        #searchText
+        matInput
+        type="text"
+        placeholder="Search for Movies of TV Show"
+      />
+      <button (click)="search(searchText.value)">Search</button>
+    </div>
+    <!-- Fix Search Bar -->
 
-      </div>
-      <!-- Fix Search Bar -->
-  
-      <div class="btn">
-        <a mat-button>Action</a>
-        <a mat-button>Comedy</a>
-        <a mat-button>Romantic</a>
-        <a mat-button>Drama</a>
-        <a mat-button>Kids</a>
-      </div>
-      <mat-icon>shopping_cart</mat-icon>
-    </mat-toolbar>
-    <!-- Header Component -->
+    <div class="btn">
+      <a mat-button>Action</a>
+      <a mat-button>Comedy</a>
+      <a mat-button>Romantic</a>
+      <a mat-button>Drama</a>
+      <a mat-button>Kids</a>
+    </div>
+    <div>
+      <a
+        routerLink="/cart"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+      >
+        <mat-icon>shopping_cart</mat-icon>
+      </a>
+    </div>
+  </mat-toolbar>
+
+  <!-- Header Component -->
 </div>

@@ -1,25 +1,28 @@
 .mat-toolbar {
-    background-color: #9A031E;
-    color: #EFE7DA;
+  background-color: #9a031e;
+  color: #efe7da;
 }
 
-.btn a{
-    color: #EFE7DA;
+.btn a {
+  color: #efe7da;
 }
 
 .spacer {
-    flex: 1 1 auto;
+  flex: 1 1 auto;
 }
 
 .search-icon {
-    color: #212738;
+  color: #212738;
 }
 
+a {
+  color: unset;
+  text-decoration: none; /* no underline */
+}
 /* ::ng-deep .mat-mdc-text-field-wrapper{
     border-radius: 50px;
     height: 45px;
 } */
-
 
 /* .mat-mdc-form-field {
     font-size: 12px;
@@ -28,16 +31,16 @@
     
 } */
 
-input[type=text] {
-    float: left;
-    padding: 6px;
-    margin-top: 8px;
-    margin-left: 30px;
-    text-align: center;
-    border: none;
-    font-size: 17px;
-  }
+input[type="text"] {
+  float: left;
+  padding: 6px;
+  margin-top: 8px;
+  margin-left: 30px;
+  text-align: center;
+  border: none;
+  font-size: 17px;
+}
 
-input{
-border-radius: 50px;
+input {
+  border-radius: 50px;
 }

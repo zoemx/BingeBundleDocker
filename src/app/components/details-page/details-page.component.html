@@ -17,18 +17,6 @@
       width="300"
     />
     <h3>{{ movieDetails.tagline }}</h3>
-    <div *ngFor="let provider of steamingProviders">
-      <ul class="streaming_providers">
-        <li>Provider: {{provider.name}}</li>
-        <ul>
-          <div *ngFor="let price of provider.prices">
-              <li>
-                {{price.plan}} : {{price.price}}
-              </li>
-          </div>
-        </ul>
-      </ul>
-    </div>
     <p>{{ movieDetails.overview }}</p>
     <h3>{{ movieDetails.origin_country }}</h3>
     <h3>{{ movieDetails.original_language }}</h3>
@@ -48,19 +36,6 @@
   <h1>
     {{ tvDetails.name }}
   </h1>
-  <div *ngFor="let provider of steamingProviders">
-    <ul class="streaming_providers">
-      <li>Provider: {{provider.name}}</li>
-      <ul>
-        <div *ngFor="let price of provider.prices">
-            <li>
-              {{price.plan}} : {{price.price}}
-            </li>
-        </div>
-      </ul>
-    </ul>
-  </div>
- 
   <h3>
     {{ tvDetails.first_air_date[0] }}
   </h3>

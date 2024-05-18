@@ -1,9 +1,28 @@
 .movie-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(18%, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(20%, 1fr));
   grid-gap: 1vw;
   padding: 2vw;
   grid-auto-rows: 420px;
+}
+
+/* Responsive grid */
+@media (max-width: 768px) {
+  .movie-grid {
+    grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .movie-grid {
+    grid-template-columns: repeat(auto-fit, minmax(25%, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .movie-grid {
+    grid-template-columns: repeat(auto-fit, minmax(20%, 1fr));
+  }
 }
 
 h2 {
@@ -19,7 +38,13 @@ a {
 .movie-card {
   height: 400px;
   position: relative;
-  background-color: white;
+  background-color: #343D58;
+  color: #EFE7DA;
+}
+
+mat-card-content .icon-container {
+  display: flex;
+  justify-content: right;
 }
 
 .movie-card img {

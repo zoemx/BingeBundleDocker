@@ -36,7 +36,6 @@ export class SearchListComponent implements OnInit {
 
   ngOnInit(): void {
     this.showSearchResults();
-    console.log('Search', this.search_list);
   }
 
   ngOnDestroy() {
@@ -46,16 +45,12 @@ export class SearchListComponent implements OnInit {
   }
 
   showSearchResults() {
-    console.log('Search List Length', this.search_list.length);
     this.MediaSearchService.getResults().subscribe((response) => {
       if (response.length > 0) {
-        console.log(response);
         this.search_list = response;
         this.errorMessage = null;
-        console.log('Search List Length', this.search_list.length);
       } else {
-        console.error('Error retrieving search results');
-        this.search_list = []; // Set empty array for search results
+        this.search_list = [];
         this.errorMessage = 'No search results found.';
       }
     });

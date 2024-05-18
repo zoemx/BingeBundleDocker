@@ -38,4 +38,5 @@ input {
     border: none;
     background: inherit;
     min-width: 352px;
+    text-align: center;
 }

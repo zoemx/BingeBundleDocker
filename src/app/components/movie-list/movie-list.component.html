@@ -7,12 +7,13 @@
     <div>
     <mat-card class="movie-card">
       <img ngSrc="https://image.tmdb.org/t/p/original/{{ movie.poster_path }}" height="400" width="300" />
-      <mat-card-content>{{ movie.original_title }}</mat-card-content>
+      <mat-card-content><b>{{ movie.original_title }}</b>
       <div class="icon-container">
-        <mat-icon>search</mat-icon>
+        <mat-icon>info</mat-icon>
         <mat-icon>favorite</mat-icon>
         <mat-icon>theaters</mat-icon>
       </div>
+    </mat-card-content>
     </mat-card>
   </div>
   </a>

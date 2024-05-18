@@ -37,7 +37,6 @@ export class TvListComponent {
 
   getTvShows(page: number = 1) {
     this.MovieApiService.getHomepageTVTitles(page).subscribe((resp: any) => {
-      // this.total_results = resp.total_results;
       this.tv_titles = resp.results;
       resp.results.forEach((tv_show: any) => {
         this.tv_titles.add(tv_show);
@@ -48,8 +47,6 @@ export class TvListComponent {
   pageChangeEvent(pageEvent: PageEvent) {
     this.currentPage = pageEvent.pageIndex;
     this.tv_page = this.currentPage + 1;
-    // console.log(this.currentPage);
-    // console.log(this.tv_page);
     this.getTvShows(this.tv_page);
   }
 }

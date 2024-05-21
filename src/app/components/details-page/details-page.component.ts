@@ -9,9 +9,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatIconModule } from '@angular/material/icon';
-
-
 import { CommonModule, NgOptimizedImage, Location } from '@angular/common';
 import { CartItems } from '../../../interfaces/cart';
 import { CartService } from '../../services/cart-service.service';
@@ -44,7 +43,8 @@ export class DetailsPageComponent {
     private route: ActivatedRoute,
     private movieApiServices: MovieApiService,
     private _location: Location,
-    private cartService: CartService
+    private cartService: CartService,
+    private snackBar: MatSnackBar
   ) {} // Inject ActivatedRoute
 
   // retrieving the media title info/fields
@@ -147,6 +147,9 @@ export class DetailsPageComponent {
     //maybe we'll trigger a modal saying that an existing provider is in the cart 
     //"do you want to swap?"
     this.cartService.addToCart(newCartItem)
+    this.snackBar.open(`Added ${newCartItem.provider_name} ${newCartItem.plan} plan to cart`, 'Close', {
+      duration: 3000,
+    });
   }
   
 }

@@ -30,6 +30,19 @@ mat-card {
   height: 20px;
 }
 
+.streaming_providers {
+  margin-bottom: 7px;
+}
+.streaming_providers img {
+  height: 35px;
+}
+
+.streaming_providers button {
+  background-color: #212738;
+  color: #fff5bd;
+  margin-top: 3px;
+}
+
 .summary {
   text-align: center;
 }

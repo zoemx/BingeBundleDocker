@@ -29,9 +29,7 @@ export class MovieListComponent {
   }
   getMovies(page: number = 1) {
     this.MovieApiService.getHomepageMovieTitles(page).subscribe((resp:any) => {
-      // this.total_movie_results = resp.total_results;
       this.movie_titles = resp.results;
-      // console.log("Movie response: " ,resp);
       resp.results.forEach((movie: any) => {
         this.movie_titles.add(movie);
       });
@@ -41,8 +39,6 @@ export class MovieListComponent {
   pageChangeEvent(pageEvent: PageEvent) {
     this.currentpage = pageEvent.pageIndex;
     this.movie_page = this.currentpage + 1;
-    // console.log("Movie Page Index: ", this.currentpage);
-    // console.log("Page number used for API: ", this.movie_page);
     this.getMovies(this.movie_page);
   }
 }

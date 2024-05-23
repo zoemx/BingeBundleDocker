@@ -19,7 +19,8 @@
   .search-card {
     height: 400px;
     position: relative;
-    background-color: white;
+    background-color: #343D58;
+    color: #EFE7DA;
   }
   
   .search-card img {

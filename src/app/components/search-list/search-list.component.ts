@@ -46,6 +46,7 @@ export class SearchListComponent implements OnInit {
 
   showSearchResults() {
     this.MediaSearchService.getResults().subscribe((response) => {
+      console.log(response)
       if (response.length > 0) {
         this.search_list = response;
         this.errorMessage = null;

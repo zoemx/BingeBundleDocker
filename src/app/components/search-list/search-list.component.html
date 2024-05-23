@@ -6,6 +6,7 @@
 </div>
 <div class="search-grid">
   <div class="box" *ngFor="let item of search_list">
+    <a routerLink="/details" [queryParams]="item.media_type === 'movie' ? { id: item.id, type: 'movie' } : { id: item.id, type: 'tv' }" routerLinkActive="active" ariaCurrentWhenActive="page">
     <mat-card class="search-card">
       <img
         *ngIf="item.poster_path || item.backdrop_path"
@@ -27,6 +28,7 @@
         <mat-icon *ngIf="item.media_type === 'movie'">theaters</mat-icon>
       </div>
     </mat-card>
+    </a>
   </div>
 </div>
 <button mat-icon-button (click)="backClicked()">

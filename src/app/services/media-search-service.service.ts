@@ -22,6 +22,7 @@ export class MediaSearchService {
           ((item.media_type == 'tv' || item.media_type == 'movie') &&
             item.backdrop_path) || item.poster_path )
             .map((item:any)=> ({
+              id: item.id,
               backdrop_path: item.backdrop_path,
               original_title: item.original_title,
               poster_path: item.poster_path,

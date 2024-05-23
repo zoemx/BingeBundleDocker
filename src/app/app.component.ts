@@ -55,11 +55,7 @@ export class AppComponent {
 
   ngOnInit(page: number = 1): void {
     this.movieApiService.getHomepageTVTitles(page).subscribe((resp: any) => {
-      // console.log(resp);
       this.titles = resp.results.map((item: any): TVTitle => {
-        //the response object will always be what the API gives us
-        //so we need to specifcally map the results we want ourselves
-        //defining the fields we want will ensure we don't deal with excess data
         return {
           name: item.name,
           backdrop_path: item.backdrop_path,
@@ -70,15 +66,8 @@ export class AppComponent {
           original_name: item.original_name,
           overview: item.overview,
           poster_path: item.poster_path,
-          // spoken_languages?: item.spoken_languages,
-          // tagline?: string
-          // languages?: item.languages
-          // genres: item.genres
-          // number_of_episodes: number
-          // number_of_seasons: number
         };
       });
-      // console.log(this.titles);
     });
     this.movieApiService.getSingleMovieTitle().subscribe((resp: MovieTitle) => {
       this.title = {
@@ -95,7 +84,6 @@ export class AppComponent {
         tagline: resp.tagline,
         title: resp.title,
       };
-      // console.log(this.title);
     });
   }
 }
